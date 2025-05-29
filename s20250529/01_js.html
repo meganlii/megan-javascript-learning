@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        bg-blue {
+            background-color: lightblue;
+        }
+
+        bg-pink {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- id修改為class -->
+    <div class="box bg-blue"></div>
+
+    <!-- 建立 按鈕 -->
+    <p>
+        <button type="button" id="myBtn">myBtn</button>
+    </p>
+
+    <script>
+        // 1.bind 綁定 按鈕
+        // let 宣告變數
+        let box = document.querySelector('.box');
+        let myBtn = document.getEventListener('.myBtn');
+
+        // 呼叫變數
+        console.log('box', box);
+        console.log('myBtn', myBtn);
+
+        // 2.action：按下遙控器 按鈕，控制 綁定內容
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn ok');
+            box.setAttribute("class", "box bg-pink");
+        });
+
+
+    </script>
+
+
+
+</body>
+
+</html>
