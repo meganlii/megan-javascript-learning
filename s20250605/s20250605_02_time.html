@@ -30,10 +30,18 @@
         <div class="box" id="myBox"></div>
     </div>
 
+    <!-- JS函數 -->
+    .getElementById
+
+
 
     <script>
 
         // 1.bind
+        // 綁定按鈕 let myBtn
+        // .getElementById 獲取元素中的id='myBtn'
+        // 綁定色塊 let box 
+        // .querySelector 查詢選擇器 '.box'
         let myBtn = document.getElementById('myBtn');
         let box = document.querySelector('.box');
 
@@ -42,6 +50,15 @@
 
 
         // 2.action
+        // 過三秒後 變粉紅色
+        // .addEventListener函數：增加事件監聽者 
+        // 動作click
+        // 執行函數function (){}  包含 兩步驟
+
+
+        // .log()呼叫按鈕
+        // .sAb()顯示色塊
+
         myBtn.addEventListener('click', function () {
             console.log('myBtn', myBtn);
             // alert('myBtn click ok');
