@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* key：css button style free找免費按鈕模板 */
+        button {
+            /* background: #fbca1f; */
+            font-family: inherit;
+            padding: 0.6em 1.3em;
+            font-weight: 900;
+            font-size: 18px;
+            border: 3px solid black;
+            border-radius: 0.4em;
+            box-shadow: 0.1em 0.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translate(-0.05em, -0.05em);
+            box-shadow: 0.15em 0.15em;
+        }
+
+        button:active {
+            transform: translate(0.05em, 0.05em);
+            box-shadow: 0.05em 0.05em;
+        }
+
+        /* .bg-red */
+        .bg-red {
+            background-color: lightpink;
+        }
+
+        /* .bg-blue */
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        /* .bg-green */
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        /* .box */
+        .box {
+            width: 80%;
+            height: 70vh;
+            border: 5px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="red-Btn" class="bg-red" type="button">紅色</button>
+        <button id="blue-Btn" class="bg-blue" type="button">藍色</button>
+        <button id="green-Btn" class="bg-green" type="button">綠色</button>
+    </div>
+
+    <hr>
+
+    <!-- 如果沒有設c，無法共用flex水平均分 -->
+    <div class="container">
+        <div id="myBox" class="box"></div>
+
+    </div>
+</body>
+
+</html>
