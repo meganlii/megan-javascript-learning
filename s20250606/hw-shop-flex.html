@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ctn-flex
+        ctn-left
+            cl-id
+            cl-pic
+            cl-name
+            cl-count
+            cl-total
+
+        ctn-mid
+        ctn-right         */
+
+        /* ctn-flex */
+        .ctn-flex {
+            width: 100%;
+            background-color: lightblue;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* ctn-left */
+        .ctn-left,
+        .ctn-mid,
+        .ctn-right {
+            width: 30%;
+            height: 500px;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ctn-flex
+        ctn-left
+            cl-id
+            cl-pic
+            cl-name
+            cl-count
+            cl-total
+
+        ctn-mid
+        ctn-right -->
+
+    <!-- ctn-flex -->
+    <div class="ctn-flex">
+
+        <!-- ctn-left -->
+        <!-- cl-id
+        cl-pic
+        cl-name
+        cl-count
+        cl-total -->
+        <div class="ctn-left">ctn-left
+            <div class="cl-id">1</div>
+            <div class="cl-pic">
+                <img src="./image1.png" alt="">
+            </div>
+            <div class="cl-name">拿鐵</div>
+            <div class="cl-price">100元</div>
+
+            <!-- 插入input -->
+            <div class="cl-count"></div>
+            <div class="cl-total">總計：</div>
+        </div>
+
+        <!-- ctn-mid -->
+        <div class="ctn-mid">ctn-mid</div>
+
+        <!-- ctn-right -->
+        <div class="ctn-left">ctn-right</div>
+
+
+    </div>
+</body>
+
+</html>
