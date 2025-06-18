@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container-table {
+            /* width: 80%; */
+            /* height: 500px; */
+            /* 寬度% 高度vh */
+            width: 80%;
+            height: 90vh;
+            background-color: wheat;
+            margin: auto;
+
+            border: 1px solid #000;
+            border-radius: 10px;
+            box-shadow: 3px 3px 15px black;
+            ;
+        }
+
+        .title {
+            /* margin: auto; */
+            text-align: center;
+        }
+
+        table {
+            /* 寬度修正為100% */
+            /* width: 50%; */
+            /* height: 50%; */
+            /* margin: auto; */
+            /* text-align: center; */
+            width: 80%;
+            margin: auto
+        }
+
+        /* td設 文字置中 */
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            height: 50px;
+            background-color: lightseagreen;
+        }
+
+        td {
+            /* height: 100px; */
+            background-color: lightpink;
+        }
+
+        /* 設td hover效果 */
+        td:hover {
+            background-color: lightsalmon;
+        }
+
+        img {
+            /* width: 50%;
+            height: 50%; */
+            /* background-color: lightblue; */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .counts {
+            width: 70px;
+            height: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 建立6*4表格 table>tr*4>td*6-->
+    <!-- 忘記th如何寫emmt -->
+
+    <!-- 要設container-table -->
+    <div class="container-table">
+
+        <h1 class="title">Shop</h1>
+
+        <table>
+            <tr>
+                <!-- th直接設定寬度 -->
+                <th width=5%>id</th>
+                <th width=10%>品項</th>
+                <th width=15%>圖片</th>
+                <th width=10%>單價</th>
+                <th width=20%>數量</th>
+                <th>總計</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>拿鐵</td>
+                <td>
+                    <!-- 可放網路連結圖片 picsum -->
+                    <img src="./image/image1.png" alt="">
+                </td>
+
+                <!-- 設span 類似td-box 之後JS綁定 -->
+                <!-- <td>100</td> -->
+                <td>
+                    <span>100</span>
+                </td>
+
+                <!-- 輸入資料 input type="number" value-->
+                <td>
+                    <input class=counts type="number" value="1">
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>摩卡</td>
+                <td>
+                    <img src="./image/image2.png" alt="">
+                </td>
+                <!-- <td>150</td> -->
+                <td>
+                    <span>150</span>
+                </td>
+
+                <td>1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>美式</td>
+                <td>
+                    <img src="./image/image3.png" alt="">
+                </td>
+                <!-- <td>50</td> -->
+                <td>
+                    <span>50</span>
+                </td>
+                <td>1</td>
+                <td></td>
+            </tr>
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>
