@@ -12,13 +12,42 @@
     <style>
         .box {
             width: 100%;
-            height: 20vh;
-            background-color: lightblue;
+            height: 80vh;
+            /* background-color: lightblue; */
             margin-top: 20px;
+
+            /* 加入flex 相當ct設定 下面有多個item / 讓img水平垂直置中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .box:hover {
-            background-color: lightskyblue;
+            /* background-color: lightskyblue; */
+        }
+
+        .box>img {
+            border-radius: 20px;
+
+        }
+
+        .box:hover {
+            box-shadow: 2px 2px 2px 2px lightgray;
+        }
+
+        .box>h1 {
+            text-align: left;
+        }
+
+        .box>h2 {
+            color: darkred;
+            text-align: left;
+        }
+
+        .box>h4 {
+            text-align: right;
         }
     </style>
 
@@ -48,7 +77,10 @@
         <div class="row">
             <div class="col">
                 <div class="box">
-                    1
+                    <!-- 插入banner -->
+                    <!-- Bootstrap 5 Images / Responsive Images / class="img-fluid" -->
+                    <!-- .box>img  border-radius: 20px;-->
+                    <img src="./images/banner.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -61,13 +93,24 @@
             <!-- col-sm-6 pc看到一列2個 -->
             <!-- col-12 手機看到一列1個 -->
             <div class="col-12 col-sm-6">
+
+                <!-- 可嵌入YT影片iframe 分享/嵌入  -->
+                <!-- 調整width="100%" 取消height="200" -->
+                <!-- .box height: 20vh 改為80vh -->
+                <!-- 調整width="100%" height="100%" -->
                 <div class="box">
-                    2-1
+                    <iframe width="100%" height="60%"
+                        src="https://www.youtube.com/embed/BKgnePkHark?si=tDgJL9RynlUR_w9d" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
                 </div>
             </div>
             <div class="col-12 col-sm-6">
                 <div class="box">
-                    2-2
+                    <!-- 插入圖片 -->
+                    <img src="./images/05.png" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -77,17 +120,30 @@
         <div class="row">
             <div class="col">
                 <div class="box">
-                    3-1
+                    <img src="./images/06.jpg" alt="" class="img-fluid">
+                    <h1>有夠貴</h1>
+                    <h2>NT$429</h2>
+                    <h4>
+                        <a href="">收藏</a>
+                    </h4>
+                    <h4>
+                        <a href="">加入購物車</a>
+                    </h4>
+
                 </div>
             </div>
             <div class="col">
                 <div class="box">
-                    3-2
+                    <img src="./images/07.jpg" alt="" class="img-fluid">
+                    <h1>普通貴</h1>
+                    <h2>NT$69</h2>
                 </div>
             </div>
             <div class="col">
                 <div class="box">
-                    3-2
+                    <img src="./images/08.jpg" alt="" class="img-fluid">
+                    <h1>好貴</h1>
+                    <h2>NT$199</h2>
                 </div>
             </div>
         </div>
@@ -99,22 +155,22 @@
             <!-- col-6 手機看到一列2個 -->
             <div class="col-6 col-sm-3">
                 <div class="box">
-                    4-1
+                    <img src="./images/01.jpg" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-6 col-sm-3">
                 <div class="box">
-                    4-2
+                    <img src="./images/02.jpg" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-6 col-sm-3">
                 <div class="box">
-                    4-3
+                    <img src="./images/03.jpg" alt="" class="img-fluid">
                 </div>
             </div>
             <div class="col-6 col-sm-3">
                 <div class="box">
-                    4-4
+                    <img src="./images/04.jpg" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
