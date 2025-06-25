@@ -7,6 +7,10 @@ s20250606-jQ
 JQ和JS寫法不同
 $(document).ready(function ()  {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c7533e982a61ccb70c95ad5faa37e8079aa32798
 myBtn.click(function (e) { 
 
 
