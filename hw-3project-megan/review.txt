@@ -1,0 +1,19 @@
+重看錄影檔
+s20250529-js  
+
+s20250606-jQ
+
+
+JQ和JS寫法不同
+$(document).ready(function ()  {
+
+myBtn.click(function (e) { 
+
+
+//dd什麼意思
+function dd($data)
+{
+    echo "<pre>";
+    print_r($data);
+    echo "</pre>";
+}
