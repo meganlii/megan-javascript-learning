@@ -96,7 +96,7 @@
     let resultP = document.getElementById('resultP');
 
     // 2.action
-    myBtn.addEventListener('click', function () {
+    myBtn.addEventListener('click', function ()  {
       console.log('myBtn OK');
 
       // 2.1 抓num1 value
@@ -114,6 +114,7 @@
       console.log(' optValue', opt.value);
       console.log(' optValue typeof', typeof (opt.value));
 
+      // 判斷運算元(+-*/)並計算結果
       let result = 0
 
       // 2.4 opt switch case
