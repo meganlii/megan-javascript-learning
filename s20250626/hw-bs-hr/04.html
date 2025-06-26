@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>人員增補申請表</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #e8e0d4;
+        padding: 30px;
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bolder;
+      }
+      .section-title {
+        background: #f0f0f0;
+        font-weight: bold;
+        padding: 10px;
+      }
+      .form-container {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>人員招募申請表 HR Recruitment Form</h2>
+      <!-- 1.Basic基本 -->
+      <div class="form-container">
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">填表日期</label>
+              <input type="date" class="form-control" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label">部門別</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">增補職稱</label>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label">職等</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">人數</label>
+              <div class="input-group">
+                <input type="number" class="form-control" />
+                <span class="input-group-text">人</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2.增補原因 -->
+          <div class="mb-3">
+            <label class="form-label section-title">增補原因</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="reason" />
+              <label class="form-check-label">年度計劃內</label>
+            </div>
+
+            <div class="form-check d-flex align-items-center">
+              <input class="form-check-input me-2" type="radio" name="reason" />
+              <label class="form-check-label me-2">職位出缺，遞補何人：</label>
+              <input type="text" class="form-control w-25" />
+            </div>
+            <div class="form-check d-flex align-items-center">
+              <input class="form-check-input me-2" type="radio" name="reason" />
+              <label class="form-check-label me-2">專案申請，說明：</label>
+              <input type="text" class="form-control w-25" />
+            </div>
+            <div class="form-check d-flex align-items-center">
+              <input class="form-check-input me-2" type="radio" name="reason" />
+              <label class="form-check-label me-2">其他：</label>
+              <input type="text" class="form-control w-50" />
+            </div>
+          </div>
+          <!-- 3.增補方式 -->
+          <div class="mb-3 d-flex align-items-center">
+            <label class="form-label section-title me-2">增補方式</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input me-2" type="radio" name="way" />
+              <label class="form-check-label">內部輪調</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="way" />
+              <label class="form-check-label me-2">對外徵才</label>
+            </div>
+            <div class="mt-2 d-flex align-items-center">
+              <label class="form-label me-2">預計到職日</label>
+              <input type="date" class="form-control w-auto" />
+            </div>
+          </div>
+          <!-- 4.工作內容 -->
+          <div class="mb-3">
+            <label class="form-label section-title">工作內容</label>
+            <textarea class="form-control" rows="4"></textarea>
+          </div>
+          <!-- 5.基本條件 -->
+          <div class="mb-3">
+            <label class="form-label section-title">基本條件</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="請輸入性別、年齡、學歷、科系、婚姻、兵役、駕照、工作經歷等條件"
+            ></textarea>
+          </div>
+          <!-- 6.語言能力 -->
+          <div class="mb-3">
+            <label class="form-label section-title">語言能力</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="請輸入英文、日文、其他語言能力"
+            ></textarea>
+          </div>
+          <!-- 7.電腦文書處理能力 -->
+          <div class="mb-3">
+            <label class="form-label section-title">電腦文書處理能力</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="請輸入 Word、Excel、PPT、Access、打字速度等能力"
+            ></textarea>
+          </div>
+          <!-- 8.其他專長及技能 -->
+          <div class="mb-3">
+            <label class="form-label section-title">其他專長及技能</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+          <!-- 9.人力資源單位意見及招募方式說明 -->
+          <div class="mb-3">
+            <label class="form-label section-title"
+              >人力資源單位意見及招募方式說明</label
+            >
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+          <!-- 10.簽名 -->
+          <div class="mb-4">
+            <label class="form-label section-title">簽名</label>
+            <div class="row g-3">
+              <div class="col-sm-6 col-md-3">
+                <label class="form-label">申請部門主管</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <label class="form-label">人力資源單位主管</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <label class="form-label">副總經理</label>
+                <input type="text" class="form-control" />
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <label class="form-label">總經理</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="reset" class="btn btn-success ms-3">重設</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
