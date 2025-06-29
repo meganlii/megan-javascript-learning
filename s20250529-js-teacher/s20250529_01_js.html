@@ -40,18 +40,25 @@
         // id
         // let box = document.getElementById('box');
         // class
+
+        // 使用選擇器，綁定 html元素(id或class)
         let box = document.querySelector('.box');
         let myBtn = document.getElementById('myBtn');
-        console.log('box', box);
-        console.log('myBtn', myBtn);       
+        console.log('box', box );
+        console.log('myBtn', myBtn );       
 
-    
+        
         // 2.action
         myBtn.addEventListener('click', function () {
             console.log('myBtn ok');
             box.setAttribute("class", "box bg-pink");
 
         });
+
+
+        console.log('Hello',(1+2));
+        
+        
 
     </script>
 </body>
