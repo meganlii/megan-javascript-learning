@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .carousel-item>img {
+            width: 100%;
+            height: 50vh;
+        }
+
+        /* -- 步驟16-2 關閉高度 bgc */
+        .box1 {
+            width: 100%;
+            /* height: 90vh; */
+            background-color: lightblue;
+        }
+
+        /* -- 步驟16-1 加上圖片 修尺寸css */
+        .box1>img {
+            width: 1300px;
+            height: 500px;
+        }
+
+        /* 步驟5 複製.box1 CSS */
+        /* 關閉高度vh */
+        /* 在外面容器設定 三個圖片置中 */
+        /* 步驟10-3 關閉bgc */
+        .box2 {
+            width: 100%;
+            /* height: 90vh; */
+            /* background-color: lightpink; */
+            text-align: center;
+        }
+
+        /* 步驟10-1 加上圖片 加css改尺寸 */
+        /* 步驟10-1 圖片上圓角 陰影 */
+        .box2>img {
+            width: 250px;
+            height: 200px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 3px lightgray;
+        }
+
+        .box3 {
+            width: 100%;
+            /* height: 90vh; */
+            /* background-color: lightyellow; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 步驟6 貼上w3 navbar / Navbar Forms and Buttons -->
+    <!-- nav -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.muji.com/jp/ja/store">
+                <img src="./images/logo4.jpg" alt="">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box1">廚房工具</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box2">烹飪配件</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box3">最新活動</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- nav end -->
+
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./images/slideshow1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/slideshow2.jpg" alt="Chicago" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/slideshow3.jpg" alt="New York" class="d-block" style="width:100%">
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- 刪除這段 自己寫ctn -->
+    <!-- <div class="container-fluid mt-3">
+    <h3>Carousel Example</h3>
+    <p>The following example shows how to create a basic carousel with indicators and controls.</p>
+</div> -->
+
+    <!-- Carousel end -->
+
+
+    <!-- 步驟1 -->
+    <!-- 步驟17 加上內部書籤連結 -->
+    <!-- container1 拼錯字沒有吃到ctn設定-->
+    <div id="box1"></div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+
+                <!-- 步驟2 -->
+                <!-- 增加.box 寫css -->
+                <!-- 步驟16 加上圖片 改滿版img-fluid 修尺寸css -->
+                <div class="box1">
+                    <img class="img-fluid" src="./images/hero.png" alt="">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- container1 end -->
+
+
+    <!-- 步驟3 -->
+    <!-- 步驟9 加上mt-3 隔開三個box2 -->
+    <!-- container2 -->
+    <div id="box2"></div>
+    <div class="container mt-3">
+        <div class="row">
+
+            <!-- 步驟8 加上RWD col-12 col-sm-4-->
+            <!-- 步驟9 加上mt-3 隔開三個box2 -->
+            <div class="col-12 col-sm-4 mt-3">
+
+                <!-- 步驟3-1 增加.box 寫css -->
+                <div class="box2">
+                    <!-- 步驟10 加上圖片 加css改尺寸 -->
+                    <img src="./images/01.jpg" alt="">
+
+                </div>
+            </div>
+
+            <!-- 步驟7 複製col -->
+            <div class="col-12 col-sm-4 mt-3">
+                <div class="box2">
+                    <img src="./images/02.jpg" alt="">
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 mt-3">
+                <div class="box2">
+                    <img src="./images/03.jpg" alt="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container2 end -->
+
+    <!-- 步驟4 -->
+    <!-- container3 -->
+    <div id="box3"></div>
+    <div class="container mt-3">
+        <div class="row">
+
+            <!-- 步驟11 增加兩個box3 其中一個放YT -->
+            <!-- 步驟12 加上RWD col-12 col-sm-8/4 -->
+            <!-- 步驟13 加上mt-3 隔開三個box2 -->
+            <div class="col-12 col-sm-8 mt-3">
+
+                <!-- 增加.box 寫css -->
+                <!-- 步驟14 放YT分享 iframe 記得調w100%-->
+                <div class="box3">
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube.com/embed/DyLxL9OnXVg?si=CA37ltNj1CLEuoGe" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 mt-3">
+
+                <!-- 增加.box 寫css -->
+                <!-- 步驟15 放YT分享 google地圖 -->
+                <div class="box3">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103696.8849972238!2d139.625419713055!3d35.688630863949506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188baa38aecf7d%3A0xab5a3452172b5f9!2z54Sh5Y2w6Imv5ZOBIOmKgOW6pw!5e0!3m2!1szh-TW!2stw!4v1751434980451!5m2!1szh-TW!2stw"
+                        width="100%" height="315" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- container3 end -->
+
+    <!-- footer -->
+    <!-- footer end-->
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+
+        });
+    </script>
+</body>
+
+
+</html>
