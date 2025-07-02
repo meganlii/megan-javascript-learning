@@ -34,7 +34,7 @@
         /* 步驟10-3 關閉bgc */
         .box2 {
             width: 100%;
-            /* height: 90vh; */
+            height: 50vh;
             /* background-color: lightpink; */
             text-align: center;
         }
@@ -42,16 +42,23 @@
         /* 步驟10-1 加上圖片 加css改尺寸 */
         /* 步驟10-1 圖片上圓角 陰影 */
         .box2>img {
-            width: 250px;
-            height: 200px;
+            width: 400px;
+            height: 300px;
             border-radius: 5px;
             box-shadow: 2px 2px 2px 3px lightgray;
+
         }
 
         .box3 {
             width: 100%;
-            /* height: 90vh; */
+            height: 50vh;
             /* background-color: lightyellow; */
+        }
+
+        .footer {
+            width: 100%;
+            height: 10vh;
+            text-align: center;
         }
     </style>
 
@@ -145,7 +152,7 @@
                 <!-- 增加.box 寫css -->
                 <!-- 步驟16 加上圖片 改滿版img-fluid 修尺寸css -->
                 <div class="box1">
-                    <img class="img-fluid" src="./images/hero.png" alt="">
+                    <img class="img-fluid object-fit-contain" src="./images/banner.jpg" alt="">
 
                 </div>
             </div>
@@ -165,7 +172,7 @@
 
             <!-- 步驟8 加上RWD col-12 col-sm-4-->
             <!-- 步驟9 加上mt-3 隔開三個box2 -->
-            <div class="col-12 col-sm-4 mt-3">
+            <div class="col-12 col-sm-4 mt-3 ">
 
                 <!-- 步驟3-1 增加.box 寫css -->
                 <div class="box2">
@@ -234,6 +241,9 @@
     <!-- container3 end -->
 
     <!-- footer -->
+    <div class="footer">
+        footer
+    </div>
     <!-- footer end-->
 
 
