@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>簡易計算機-ajax</title>
     <style>
-        .container{
+        .container {
             width: 300px;
             height: 300px;
             /* margin: auto; */
@@ -14,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <form action="./c03_ajaxData.php" method="get" id="myForm">
@@ -30,12 +32,12 @@
                 <button type="submit" id="myBtn">計算</button>
             </p>
         </form>
-            <hr>
-            <p id="resultP">
-                //計算結果
-            </p>
+        <hr>
+        <p id="resultP">
+            //計算結果
+        </p>
     </div>
-    
+
 
 
     <!-- 載入jquery -->
@@ -53,22 +55,24 @@
             let myBtn = $('#myBtn');
             let resultP = $('#resultP');
             const myForm = $('#myForm');
-            
-            
+
+
             // 2. action
             myForm.submit(function (e) {
                 e.preventDefault();
                 let url = "./c03_ajaxData.php";
                 let data = $(this).serializeArray();
                 console.log('data', data);
+
                 $.ajax({
                     type: "get",
                     url: url,
                     data: data,
                     dataType: "json",
+
                     success: function (response) {
                         // "calculator_01_js.html"的code:D
-                        console.log('response',response);
+                        console.log('response', response);
                         let num1Value = Number(num1.val());
                         console.log('num1Value', num1Value);
                         console.log('num1Value typeof', typeof (num1Value));
@@ -83,7 +87,7 @@
 
                         // 判斷運算元(?)並計算結果
                         let result = 0;
-                        switch(optValue){
+                        switch (optValue) {
                             case '+':
                                 result = num1Value + num2Value;
                                 break;
@@ -105,9 +109,8 @@
                     }
                 });
             });
-
-
         });
     </script>
 </body>
+
 </html>
