@@ -31,6 +31,7 @@
         </p>
         <p>
             <input type="text" name="" id="opt" value="+">
+            <!-- type設為文字text -->
         </p>
 
         <p>
@@ -71,10 +72,12 @@
             console.log('num2Value typeof', typeof (num2Value));
 
             // 2-3.抓opt value
-            let optValue = opt.value;
-            console.log('optValue', optValue);
+            let optValue = opt.value;   // 運算符號屬於字串str，不用轉型num()
+            console.log('optValue', optValue); 
             console.log('optValue typeof', typeof (optValue));
+            
 
+            // 計算結果：先宣告result 再給判斷
             let result = 0;
             // 2-4 opt switch case
             switch (optValue) {
@@ -102,8 +105,6 @@
                     console.log('result', result);
                     break;
             }
-
-
 
             // 2-5 result to resultP
             // resultP.innerText = 'num1 + num2 = result';
