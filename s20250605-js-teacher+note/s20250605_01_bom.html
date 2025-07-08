@@ -18,7 +18,7 @@
         console.log('document', window.document);
         console.log('document typeof', typeof (document));
         console.log('window.console', window.console);
-        // 老師有補充 點.用法  OOP箭頭寫法？
+        // 老師有補充 (點.) 存取用法  等同OOP胖箭頭=>寫法？
 
         // 1.bind
         let myBtn = document.getElementById('myBtn');
@@ -26,8 +26,10 @@
         // 2.action
         myBtn.addEventListener('click', function () {
             console.log('myBtn', myBtn);
-            // alert('myBtn click ok');
+
+            // alert('myBtn click ok') ;            
             // window.alert('myBtn click ok');
+            // 點按鈕後出現'字串'訊息視窗，兩種寫法一樣
 
         });
 
