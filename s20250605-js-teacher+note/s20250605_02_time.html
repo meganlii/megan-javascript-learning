@@ -23,9 +23,14 @@
 </head>
 
 <body>
+    <!-- 建立兩個ctn，各放 button 跟 .box ，另做css mt隔開-->
+    <!-- 1. button  -->
     <div class="container">
         <button type="button" id="myBtn">myBtn</button>
+
     </div>
+
+    <!-- 2. box -->
     <div class="container">
         <div class="box" id="myBox"></div>
     </div>
@@ -39,7 +44,7 @@
 
         // 1.bind
         let myBtn = document.getElementById('myBtn');
-        let box = document.querySelector('.box');
+        let box = document.querySelector('.box');   // JS使用class選擇器，要加(點.)
 
         console.log('myBtn', myBtn);
         console.log('myBtn typeof', typeof (myBtn));
@@ -50,30 +55,25 @@
             console.log('myBtn', myBtn);
             // alert('myBtn click ok');
             // window.alert('myBtn click ok');
-            
-            // 1.
+
+            // 兩種方式
+            // 1. 匿名函式
+            // 類似.addEventListener(' ',func (){ } ) 第二個參數-匿名函數 大括號內接 執行動作
             setTimeout(function () {
                 console.log('hihi mybtn');
-                box.setAttribute('class', 'box bg-pink');
-                box.setAttribute('class', 'box bg-pink');
+                box.setAttribute('class', 'box bg-pink'); // 回到css加顏色
+                // 設定 新HTML 屬性 (屬性名稱-CSS類別，新的屬性值（多個 CSS 類別）
 
             }, 3000);
 
-            // 2.
-            // 宣告
-            function sayHelloFun() {
-                // sayHelloFun()
+            // 2. 宣告函式
+            function sayHelloFun() {        // 先命名函式 sayHelloFun()
                 console.log('sayHelloFun ok ');
-
+                box.setAttribute('class', 'box bg-pink'); // 回到css加顏色
             }
-
-            setTimeout(sayHelloFun, 3000);
-            setTimeout('sayHelloFun', 3000);
-
-
-
-
-
+            setTimeout(sayHelloFun, 3000);  // 再呼叫函式 callback func
+            // 在 3 秒後執行時，就會調用 sayHelloFun 函數
+            // 然後執行其中的 box.setAttribute('class', 'box bg-pink'); 程式碼
 
             // 過三秒後 變粉紅色 ?
 
