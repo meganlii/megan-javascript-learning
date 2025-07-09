@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 載入 Bootstrap 5 的 CSS 樣式 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+    integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* 設定 .box 類別的寬高 */
+    .box {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <!-- 三個 box，分別有不同的顏色與 data-text 屬性 -->
+      <div class="col">
+        <div class="box bg-info" data-text="info"></div>
+      </div>
+      <div class="col">
+        <div class="box bg-warning" data-text="warning"></div>
+      </div>
+      <div class="col">
+        <div class="box bg-danger" data-text="danger"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 載入 Bootstrap 5 的 JS 檔案 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+    integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- 載入 jQuery 函式庫 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    // 等待網頁載入完成後執行
+    $(document).ready(function () {
+      // 1. 綁定變數到對應的元素
+      const info = $('.bg-info');      // 藍色 box
+      const warning = $('.bg-warning');// 黃色 box
+      const danger = $('.bg-danger');  // 紅色 box
+      const box = $('.box');           // 所有 box
+
+      // 2. 設定 box 點擊事件
+      box.click(function (e) {
+        console.log('this', this); // 印出目前被點擊的 DOM 元素
+        let tmpText = $(this).attr('data-text'); // 取得 data-text 屬性值
+        console.log('tmpText', tmpText); // 印出 data-text 的值
+      });
+
+      // 備註：上方註解掉的 info.click(...) 是單獨針對 info box 綁定事件的範例
+    });
+  </script>
+</body>
+
+</html>
