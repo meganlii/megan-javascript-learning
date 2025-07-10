@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box1 {
+            width: 100%;
+            /* height: 50vh; */
+            /* max-height:90vh; */
+            /* background-color: lightblue; */
+        }
+
+        .box2 {
+            width: 100%;
+            /* height: 50vh; */
+            /* background-color: lightpink; */
+            text-align: center;
+        }
+
+        .box2>img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 3px lightgray;
+
+        }
+
+        .box3 {
+            width: 100%;
+            height: 50vh;
+            /* background-color: yellow; */
+        }
+
+        .footer {
+            width: 100%;
+            height: 10vh;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 1. 導覽列 nav  -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="">首頁</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box1">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box2">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box3">PHP</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-primary" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- nav end -->
+
+    <!-- 2. 輪播圖 Carousel  -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner ">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/id/20/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/24/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/36/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Carousel end -->
+
+    <!-- 3. 大圖 container1 -->
+    <div id="box1"></div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="box1">
+                    <img class="img-fluid " src="https://picsum.photos/id/305/1400/700" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- container1 end -->
+
+
+    <!-- 4. 卡片 container2 -->
+    <div id="box2"></div>
+    <div class="container mt-3">
+        <div class="row">
+
+            <!-- 三張卡片 三個col -->
+            <div class="col-12 col-sm-4 mt-3 ">
+                <div class="box2">
+                    <img class="card-img-top" src="https://picsum.photos/id/292/400/300" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title pt-3">複習筆記</h5>
+                        <p class="card-text">Some example text.</p>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-primary">HTML</button>
+                            <button type="button" class="btn btn-primary">CSS</button>
+                            <button type="button" class="btn btn-primary">PHP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 mt-3 ">
+                <div class="box2">
+                    <img class="card-img-top" src="https://picsum.photos/id/293/400/300" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title pt-3">參考書籍</h5>
+                        <p class="card-text">Some example text.</p>
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary btn-block">介紹</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 mt-3 ">
+                <div class="box2">
+                    <img class="card-img-top" src="https://picsum.photos/id/294/400/300" alt="Card image">
+                    <div class="card-body">
+                        <h5 class="card-title pt-3">參考網站</h5>
+                        <p class="card-text">Some example text.</p>
+                        <a href="#" class="btn btn-primary">See Profile</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- container2 end -->
+
+        <!-- 步驟4 -->
+        <!-- container3 -->
+        <div id="box3"></div>
+        <div class="container mt-3">
+            <div class="row">
+
+                <!-- 步驟11 增加兩個box3 其中一個放YT -->
+                <!-- 步驟12 加上RWD col-12 col-sm-8/4 -->
+                <!-- 步驟13 加上mt-3 隔開三個box2 -->
+                <div class="col-12 col-sm-8 mt-3">
+
+                    <!-- 增加.box 寫css -->
+                    <!-- 步驟14 放YT分享 iframe 記得調w100%-->
+                    <div class="box3">
+                        <iframe width="100%" height="315"
+                            src="https://www.youtube.com/embed/DyLxL9OnXVg?si=CA37ltNj1CLEuoGe"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-4 mt-3">
+
+                    <!-- 增加.box 寫css -->
+                    <!-- 步驟15 放YT分享 google地圖 -->
+                    <div class="box3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103696.8849972238!2d139.625419713055!3d35.688630863949506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188baa38aecf7d%3A0xab5a3452172b5f9!2z54Sh5Y2w6Imv5ZOBIOmKgOW6pw!5e0!3m2!1szh-TW!2stw!4v1751434980451!5m2!1szh-TW!2stw"
+                            width="100%" height="315" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- container3 end -->
+
+        <!-- footer -->
+        <div class="footer">
+            footer
+        </div>
+        <!-- footer end-->
+
+
+
+        <!-- 載入bs5 js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+            integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- 載入jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>
+            $(document).ready(function () {
+
+
+            });
+        </script>
+</body>
+
+
+</html>
