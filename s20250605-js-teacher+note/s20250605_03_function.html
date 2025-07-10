@@ -10,30 +10,48 @@
 <body>
 
     <script>
-        // 1.好寶寶
-        function good() {
+        // 定義-函式：沒有參數 (parameter)
+        // 1. 好寶寶章：蓋出一樣內容 函式可重複呼叫使用
+        function good() {   // 1-1 宣告函式 函式名稱(){ }
             console.log('good kai');
         }
 
-        // 2.日期印章
+        good();        // 1-2 呼叫函式 沒有引數 出現字串 good kai
+        console.log('good', good);  // 輸出：上面整個函式
+
+
+        // 函式-參數：function 函式名稱 (參數1,參數2,...,參數n){ }
+        // 2. 日期印章：放多個日期
         function setTimeFun(month, day) {
-            console.log(`${month} - ${day}`);
+            console.log(`${month} - ${day}`);  
+            // 模板字串 組合文字和變數 `${變數名}`：反引號裝字串 $+{}裝變數
 
         }
+        setTimeFun('12', '31');  //2-2 呼叫函式 並傳入2個 引數
+        // 因為是引數 (argument) 所以有單引號' '
 
-        // 3.販賣機
-        function buy(money, opt) {
-            $result = `${money}, ${opt}`;
+        
+        // 函式-回傳值
+        // 3. 販賣機：掉出飲料 回傳值
+        function buy(money, opt) {         
+            // 改成 let result = `${money}, ${opt}`;
             // money - 20
             // 可樂
-            return $result;
+            
+            $result = `${money}, ${opt}`;  // 先宣告變數 之後才能return
+            return $result;                // return回傳值 裝變數
+            
         }
-        console.log('good', good);
-        setTimeFun('12', '31');
+        
 
-        let data = buy(100, '可樂');
-        console.log('data', data);
+        let data = buy(100, '可樂'); // 1. 呼叫函式 → 2. 取得回傳值 → 3. 指派給 data
+        console.log('data', data);  // 輸出：data 100, 可樂
+        // data 變數儲存的是函式的執行結果，不是函式本身！
+        // 呼叫函式 並將回傳值 指派給變數data
+        // 變數data 接收 函式buy  回傳值
 
+
+        // 生活比喻
         function 洗衣服(input) {
             let data = '洗好的衣服';
             return data;
