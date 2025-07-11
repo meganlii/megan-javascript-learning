@@ -58,20 +58,24 @@
             // alert('myBtn click ok');
             // window.alert('myBtn click ok');
 
-            // 1.
-            setInterval(function () {
+            // 1. 粉藍綠 三色 間隔3秒 重複切換
+            setInterval(function () {                          // 週期：間隔3秒
                 // console.log('hello');
-                box.setAttribute('class', 'box bg-pink');
-                setTimeout(function () {
-                    box.setAttribute('class', 'box bg-blue');
+                box.setAttribute('class', 'box bg-pink');      // 預設藍色 按下後變粉色
+                
+                setTimeout(function () {                       
+                    box.setAttribute('class', 'box bg-blue');  // 過1秒 變藍色 暫停
 
                 }, 1000);
 
-                setTimeout(function () {
+                setTimeout(function () {                       // 過2秒 變綠色 暫停 回到粉色
                     box.setAttribute('class', 'box bg-green');
 
-                }, 2000);
+                }, 2000);                     
+
             }, 3000);
+
+            // 思考變色一輪後，如何停止變色
 
             // setTimeout(function () {
             //     box.setAttribute('class', 'box bg-pink');
