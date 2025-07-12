@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <d>
+        <input type="text" id="myInput">
+    </p>
+
+    <button type="button" id="myBtn">myBtn</button>
+
+    <script>
+        // 1.bind
+        let myInput = document.getElementById('myInput');
+        let myBtn = document.getElementById('myBtn');
+        console.log('myBtn', myBtn);  // 輸出： 上面<button> ... </button>
+
+        // 2.action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn ok'); // 輸出： 字串 myBtn ok 確認監聽設定成功，不用重複再輸出myBtn
+
+            // 2-1 宣告變數 抓 myInput value
+            let getInput = myInput.value;
+            console.log('getInput', getInput);  // 輸出：getInput (輸入的字串)
+
+            // https://www.merriam-webster.com/dictionary/apple
+
+            // 查詢單字 apple 設定兩個 url 
+            let url = `https://www.merriam-webster.com/dictionary/${getInput}`;  // 放變數
+            
+            let urlChinese = `https://dictionary.cambridge.org/dictionary/english-chinese-traditional/${getInput}`
+            console.log('url', url);
+
+            // 2-2 連結 url
+            window.open(url);  // 開啟 第一個分頁
+            window.open(urlChinese);  // 開啟 並停留在 第二個分頁 .focus() 
+
+            // 2-3 可另加 setTimeout：點擊後 也可同時開兩個分頁
+            // 多行註解使用 /* */
+            /* setTimeout (function(){
+                window.open(urlChinese);  // 開啟 第二個分頁
+            },1000); */
+            
+        });
+
+            // 不要彈出頁面 同一頁下方放兩個iframe
+        
+        
+
+        
+
+
+    </script>
+</body>
+
+</html>
