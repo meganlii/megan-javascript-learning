@@ -1,91 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .box {
-            width: 300px;
-            height: 300px;
-            background-color: lightblue;
-        }
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+      }
 
-        .container {
-            margin-top: 30px;
-        }
+      .container {
+        margin-top: 30px;
+      }
 
-        .bg-pink {
-            background-color: pink;
-        }
+      .bg-pink {
+        background-color: pink;
+      }
 
-        .bg-blue {
-            background-color: lightblue;
-        }
+      .bg-blue {
+        background-color: lightblue;
+      }
 
-        .bg-green {
-            background-color: lightgreen;
-        }
+      .bg-green {
+        background-color: lightgreen;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <button type="button" id="myBtn">myBtn</button>
+      <button type="button" id="myBtn">myBtn</button>
     </div>
     <div class="container">
-        <div class="box" id="myBox"></div>
+      <div class="box" id="myBox"></div>
     </div>
-
 
     <script>
-        // function
+      // function
 
-        // 1.bind
-        let myBtn = document.getElementById('myBtn');
-        let box = document.querySelector('.box');
+      // 1.bind
+      let myBtn = document.getElementById("myBtn");
+      let box = document.querySelector(".box");
 
-        console.log('myBtn', myBtn);
-        console.log('myBtn typeof', typeof (myBtn));
+      console.log("myBtn", myBtn);
+      console.log("myBtn typeof", typeof myBtn);
 
+      // 2.action
+      myBtn.addEventListener("click", function () {
+        console.log("myBtn", myBtn);
+        // alert('myBtn click ok');
+        // window.alert('myBtn click ok');
 
-        // 2.action
-        myBtn.addEventListener('click', function () {
-            console.log('myBtn', myBtn);
-            // alert('myBtn click ok');
-            // window.alert('myBtn click ok');
+        // 1. 粉藍綠 三色 間隔3秒 重複切換
 
-            // 1. 粉藍綠 三色 間隔3秒 重複切換
+        // 2. 儲存 interval ID：
+        // 將 setInterval 回傳值 儲存在 intervalId 變數中
+        let intervalId = setInterval(function () {
+          // 設定週期：間隔3秒  setinterval
+          // console.log('hello');
+          box.setAttribute("class", "box bg-pink"); // 預設藍色 按下後 立即變粉色
 
+          setTimeout(function () {
+            box.setAttribute("class", "box bg-blue"); // 過1秒 變藍色 暫停
+          }, 1000);
 
-            // 2. 儲存 interval ID：
-            // 將 setInterval 回傳值 儲存在 intervalId 變數中
-            let intervalId = 
-            setInterval (function () {        // 設定週期：間隔3秒  setinterval
-                // console.log('hello');
-                box.setAttribute('class', 'box bg-pink');      // 預設藍色 按下後 立即變粉色
-                
-                setTimeout(function () {
-                    box.setAttribute('class', 'box bg-blue');  // 過1秒 變藍色 暫停
-                }, 1000);
+          setTimeout(function () {
+            box.setAttribute("class", "box bg-green"); // 過2秒 變綠色 暫停 回到粉色
+          }, 2000);
 
-                setTimeout(function () {
-                    box.setAttribute('class', 'box bg-green'); // 過2秒 變綠色 暫停 回到粉色
-                }, 2000);
+          // 3. 停止計時 clearInterval
+          clearInterval(intervalId); // 在最後一個顏色變化後停止計時器
+        }, 3000);
 
-            // 3. 停止計時 clearInterval
-                clearInterval (intervalId)  // 在最後一個顏色變化後停止計時器
-                
-            }, 3000);
-
-            // 3. 停止計時 不要加在外部
-            // clearInterval (intervalId)  // 在最後一個顏色變化後停止計時器
-            
-        });
-
+        // 3. 停止計時 不要加在外部
+        // clearInterval (intervalId)  // 在最後一個顏色變化後停止計時器
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
