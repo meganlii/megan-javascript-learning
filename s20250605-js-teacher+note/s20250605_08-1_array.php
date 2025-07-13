@@ -1,6 +1,8 @@
 <?php
+// 索引陣列
 $indexArr = [1, 2, 3];
 
+// 關聯陣列 =>
 $assocArr = [
     's1' => 'amy',
     's2' => 'bob',
