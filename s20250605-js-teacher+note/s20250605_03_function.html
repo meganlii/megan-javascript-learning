@@ -27,7 +27,7 @@
             // 模板字串 組合文字和變數 `${變數名}`：反引號裝字串 $+{}裝變數
 
         }
-        setTimeFun('12', '31');  //2-2 呼叫函式 並傳入2個 引數
+        setTimeFun('12', '31');  //2-2 呼叫函式( ) 並傳入2個 引數
         // 因為是引數 (argument) 所以有單引號' '
 
         
@@ -39,9 +39,10 @@
             
             $result = `${money}, ${opt}`;  // 先宣告變數 之後才能return
             // 改成 let result = `${money}, ${opt}`;
+            // $ 常見於 jQuery 程式庫中（如 $('#id')） 一般變數命名不會用 $ 開頭
             
             return $result;                // return回傳值 拿變數裝
-            
+            // 改成 return result
         }
         
         let data = buy(100, '可樂'); // 1. 呼叫函式 → 2. 取得回傳值 → 3. 指派給 data
