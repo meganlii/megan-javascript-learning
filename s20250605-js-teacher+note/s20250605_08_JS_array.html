@@ -12,6 +12,7 @@
     <script>
 
         // obj 
+        // JS沒有關聯式array，改稱object  差異不詳？
         // isArray 純陣列
         // array method 只能用在array上面
 
@@ -19,6 +20,9 @@
         let myArr = [1, 2, 3];
         console.log('myArr', myArr);
         console.log('myArr typeof', typeof (myArr));
+        
+        // Array.isArray( ) 判斷是否為陣列
+        // 回傳 result true or false 靜態方式
         let result = Array.isArray(myArr);
         console.log('result', result);
 
@@ -37,9 +41,9 @@
         }
         console.log('myObj', myObj);
         console.log('myObj typeof', typeof (myObj));
+        
         let resultObj = Array.isArray(myObj);
         console.log('resultObj', resultObj);
-
 
 
         let data = [

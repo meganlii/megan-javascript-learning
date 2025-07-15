@@ -1,15 +1,16 @@
 <?php
-// 索引陣列
+// 索引陣列  只有數字key值
 $indexArr = [1, 2, 3];
 
-// 關聯陣列 =>
+// 關聯陣列 => 有胖箭頭 有key值-字串或數字
+// key => value
 $assocArr = [
     's1' => 'amy',
     's2' => 'bob',
     's3' => 'cat'
 ];
 
-
+// 二維陣列
 $data = [
     [
         'id' => 1,
@@ -47,6 +48,8 @@ $data = [
     ],
 ];
 
+// 迴圈取值 將陣列中的元素拆成key和value兩個變數
+// 最常用 for很少用
 foreach ($indexArr as $key => $value) {
     # code...
 }
