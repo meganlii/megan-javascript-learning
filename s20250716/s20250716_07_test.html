@@ -38,36 +38,51 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // 0. 宣告
-        let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        /*
+       薪水 = [30000,40000,50000,60000];
+       提撥新人獎金 10000 ( <50000 ) [40000,50000,50000,60000]
+       每人獎金 5000 [35000,45000,55000,65000]
+       這個月 總共發多少
 
-        const classBtn = $('.classBtn');  // 定義 JQ物件
-        console.log('classBtn', classBtn);
+        */
 
-        // 1. JS foreach 處理每個元素
-        myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        })
+        // 1. bind
+        let money = [30000, 40000, 50000, 60000];
+        console.log('money', money);
 
-        console.log('1. js foreach');
+        let newMoney = [];
+        let eachMoney = [];
+        let total = [];
 
-
-        // 2. jQ each 處理數據陣列
-        $.each(myArr, function (key, value) {
-            console.log('key', value);
-            console.log('value', value);
+        // 2. action
+        // 2-1 新人獎金
+        let sum = 0;
+        money.forEach(function (value, key) {
+            if (value < 50000) {
+                newMoney.push(value + 10000);
+            }
+            else {
+                newMoney.push(value);
+            }
         });
 
-        console.log('2. js each');
+        console.log('newMoney', newMoney);
+        // 輸出 [40000, 50000, 50000, 60000]
 
-        // 3. jq物件 each 處理 DOM 元素
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
+        // 2-2 每人獎金
+        money.forEach(function (value, key) {
+            eachMoney.push(value + 5000);
         });
+        console.log('eachMoney', eachMoney);
+        // 輸出 [35000, 45000, 55000, 65000]
+
+        // 2-3 發薪總計
+        // newMoney + eachMoney
+        let total = newMoney + eachMoney;
+        log('total', total);
+
+
+
 
 
 

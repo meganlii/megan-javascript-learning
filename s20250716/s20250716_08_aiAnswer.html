@@ -15,14 +15,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
-                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -38,37 +30,36 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // 0. 宣告
-        let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        // 正確解法
+        let money = [30000, 40000, 50000, 60000];
+        console.log('money', money);
 
-        const classBtn = $('.classBtn');  // 定義 JQ物件
-        console.log('classBtn', classBtn);
-
-        // 1. JS foreach 處理每個元素
-        myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        })
-
-        console.log('1. js foreach');
-
-
-        // 2. jQ each 處理數據陣列
-        $.each(myArr, function (key, value) {
-            console.log('key', value);
-            console.log('value', value);
+        // 步驟 1: 新人獎金 (薪水 < 50000 加 10000)
+        let newMoney = [];
+        money.forEach(function (value, key) {
+            if (value < 50000) {
+                newMoney.push(value + 10000);
+            } else {
+                newMoney.push(value);
+            }
         });
 
-        console.log('2. js each');
+        console.log('newMoney', newMoney);
 
-        // 3. jq物件 each 處理 DOM 元素
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
+
+        // 步驟 2: 每人獎金 5000
+        let finalMoney = [];
+        newMoney.forEach(function (value, key) {
+            finalMoney.push(value + 5000);
         });
 
+        // 步驟 3: 計算總計
+        let total = 0;
+        finalMoney.forEach(function (value) {
+            total += value;
+        });
+
+        console.log('total', total);
 
 
     </script>

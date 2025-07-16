@@ -38,36 +38,19 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // 0. 宣告
+        // 1. bind
         let myArr = [1, 2, 3, 4, 5];
         console.log('myArr', myArr);
 
-        const classBtn = $('.classBtn');  // 定義 JQ物件
-        console.log('classBtn', classBtn);
+        let newArr = [];
 
-        // 1. JS foreach 處理每個元素
+        // 2. action
+        let sum = 0;
+        let defaultTotal = 100;
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        })
-
-        console.log('1. js foreach');
-
-
-        // 2. jQ each 處理數據陣列
-        $.each(myArr, function (key, value) {
-            console.log('key', value);
-            console.log('value', value);
+            sum += value;
         });
 
-        console.log('2. js each');
-
-        // 3. jq物件 each 處理 DOM 元素
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
-        });
 
 
 

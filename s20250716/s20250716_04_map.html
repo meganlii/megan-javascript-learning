@@ -38,36 +38,35 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // 0. 宣告
+
+        // 第一種 JS 原生寫法 array push
+        // 1. bind
         let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        console.log('myArr OK', myArr); // 輸出 [1, 2, 3, 4, 5]
 
-        const classBtn = $('.classBtn');  // 定義 JQ物件
-        console.log('classBtn', classBtn);
+        let newArr = [];
 
-        // 1. JS foreach 處理每個元素
+        // const classBtn = $('.classBtn');  // 定義 JQ物件
+        // console.log('classBtn', classBtn);
+
+        // 2. action
+        // array push 轉換陣列中的每個元素，並返回一個新的陣列
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        })
-
-        console.log('1. js foreach');
-
-
-        // 2. jQ each 處理數據陣列
-        $.each(myArr, function (key, value) {
-            console.log('key', value);
-            console.log('value', value);
+            newArr.push(value * 3);
         });
 
-        console.log('2. js each');
+        console.log('newArr', newArr); // 輸出 [3, 6, 9, 12, 15]
 
-        // 3. jq物件 each 處理 DOM 元素
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
+
+        // 第二種 map 別人寫好的函式
+        // 前後兩個變數不一樣 mapArr myArr
+        // 轉換陣列中的每個元素，並返回一個新的陣列。
+        // console.log(mapArr);
+        let mapArr = myArr.map(function (value, key) {
+            return value * 10;
         });
+
+        console.log('mapArr', mapArr);  // 輸出 
 
 
 

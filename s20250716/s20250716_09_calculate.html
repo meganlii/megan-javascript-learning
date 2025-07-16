@@ -15,14 +15,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
-                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
-            </div>
-        </div>
-    </div>
+
+
 
 
 
@@ -38,37 +32,26 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        // 0. 宣告
-        let myArr = [1, 2, 3, 4, 5];
-        console.log('myArr', myArr);
+        // 1. bind
+        let myArr = [30000, 40000, 50000, 60000];
+        let tmpArr = [];
 
-        const classBtn = $('.classBtn');  // 定義 JQ物件
-        console.log('classBtn', classBtn);
+        // 2. action
 
-        // 1. JS foreach 處理每個元素
+        // 1.薪水 = [30000,40000,50000,60000];
+        // 2.提撥新人獎金 10000 ( < 50000) [40000, 50000 , 50000 ,60000]
+        // 3.每個人獎金 = 5000 [45000,55000,55000,65000]
+        // 4.那我這個月 總共要發多少
+
+        // 3. 設變數 以後維護方便
+        // 找出資料中可設 變數 的資料
+        let sum = 0;
         myArr.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-        })
+            let tmpValue = 0;
+            let bonus = 0;
+            let newBonus = 0;
 
-        console.log('1. js foreach');
-
-
-        // 2. jQ each 處理數據陣列
-        $.each(myArr, function (key, value) {
-            console.log('key', value);
-            console.log('value', value);
         });
-
-        console.log('2. js each');
-
-        // 3. jq物件 each 處理 DOM 元素
-        classBtn.each(function (key, value) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('$(this)', $(this));
-        });
-
 
 
     </script>

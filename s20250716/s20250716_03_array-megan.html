@@ -15,8 +15,14 @@
 </head>
 
 <body>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
+                <button id="myBtn" class="btn btn-primary my-3 mx-3 classBtn">myBtn</button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- 載入bs5 js -->
@@ -28,16 +34,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
         // 1. bind
         let myArr = [1, 2, 3, 4, 5];
+        console.log('myArr OK', myArr);
+
 
         // 2. action 加總
         let sum = 0;
         myArr.forEach(function (value, key) {
+            console.log('myArr.forEach', value);
+            console.log('myArr.forEach', key);
             sum = sum + value;
-
         })
+
+        console.log('sum', sum);
+
 
 
 

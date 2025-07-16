@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-row">
+            <!-- <div class="col-12 col-sm-4 mt-3">
+                <div class="box">
+                    <p class="word-id">id:1</p>
+                    <p class="word">word:apple</p>
+                    <p class="ipa">ipa:appleV</p>
+                    <p class="meaning-zh">meaning_zh:蘋果</p>
+                    <p class="example-en">example_en:好吃的蘋果</p>
+                    <p class="example-zh">example_zh:good apple</p>
+                    <hr>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./data/data.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // 1.bind
+            const myRow = $('.my-row');
+
+            // 2.action
+
+            console.log('data', data);
+            data.forEach(function (value, key) {
+                console.log('key', key);
+                console.log('value', value);
+
+                let tmpText = `
+                <div class="col-12 col-sm-4 mt-3">
+                    <div class="box">
+                        <p class="word-id">${value.id}</p>
+                        <p class="word">${value.word}</p>
+                        <p class="ipa">${value.ipa}</p>
+                        <p class="meaning-zh">${value.meaning_zh}</p>
+                        <p class="example-en">${value.example_en}</p>
+                        <p class="example-zh">${value.example_zh} apple</p>
+                        <hr>
+                    </div>
+                 </div>
+                `;
+                myRow.append(tmpText);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
