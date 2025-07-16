@@ -14,7 +14,7 @@
         // obj 
         // JS沒有關聯式array，改稱object  差異不詳？
         // isArray 純陣列
-        // array method 只能用在array上面
+        // array method 只能用在array上面 例如foreach
 
         // 1.
         let myArr = [1, 2, 3];
@@ -45,7 +45,6 @@
         let resultObj = Array.isArray(myObj);
         console.log('resultObj', resultObj);
 
-
         let data = [
             {
                 'id': 1,
@@ -64,6 +63,8 @@
             },
         ];
 
+        // JS forEach用法 和php寫法不同
+        
         data.forEach(element => {
             console.log('element', element);
 
