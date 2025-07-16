@@ -30,7 +30,7 @@
 <body>
     <div class="box bg-blue">
     </div>
-    
+
     <!-- 如果包在<div>裡面，跟.box會相連，沒有隔開 -->
     <p>
         <button type="button" id="myBtn">myBtn</button>
@@ -44,19 +44,19 @@
 
         // 使用選擇器，綁定 html元素(id或class)
         let box = document.querySelector('.box');  // JS使用class選擇器，要加(點.)
-        let myBtn = document.getElementById('myBtn');  
-        console.log('box', box );
-        console.log('myBtn', myBtn );       
+        let myBtn = document.getElementById('myBtn');
+        console.log('box', box);
+        console.log('myBtn', myBtn);
 
-        
+
         // 2.action
         myBtn.addEventListener('click', function () {
             console.log('myBtn ok'); //確認按鈕點擊事件有正常觸發（偵錯用途）
-            
+
             box.setAttribute("class", "box bg-pink");
             // 設定 新HTML 屬性 (屬性名稱-CSS類別，新的屬性值（多個 CSS 類別），另外回到上方加顏色 css .bg-pink
-            
-            // ('class', 'box bg-pink');大部分現代JS開發，傾向使用單引號
+
+            // ('class', 'box bg-pink') 大部分現代JS開發，傾向使用 單引號
 
             // 第二種改變顏色寫法-少用，不好維護 <div id="box">
             // box.style.background = "lightpink"
@@ -64,9 +64,9 @@
         });
 
 
-        console.log('Hello',(1+2));
-        
-        
+        console.log('Hello', (1 + 2));
+
+
 
     </script>
 </body>
