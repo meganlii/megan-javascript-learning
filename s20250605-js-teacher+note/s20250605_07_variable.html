@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <button id="myBtn" type="button">myBtn</button>
-    <script>
-      // 懶人包
-      // 1.不要auto
-      // 2.不要var 作用域 全域變數
-      // 3.起手全部都用let 區域變數 限定範圍
-      // 4.綁定element const
-      // 通常全部程式寫完 固定值不能變動者 再換成const
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      // 1.bind
-      // const 綁定element 整串不能改變
-      const myBtn = document.getElementById("myBtn");
+<body>
+  <button id="myBtn" type="button">myBtn</button>
+  <script>
+    // 懶人包
+    // 1.不要auto
+    // 2.不要var 作用域 全域變數
+    // 3.起手全部都用let 區域變數 限定範圍
+    // 4.綁定element const
+    // 通常全部程式寫完 固定值不能變動者 再換成const
 
-      // element 裡面attr 都可以更動
-      console.log("myBtn", myBtn);
-      myBtn.innerText = "12345";
+    // 1.bind
+    // const 綁定element 整串不能改變
+    const myBtn = document.getElementById("myBtn");
 
-      // 舉例 績效獎金比例
-      /* const bonus = 10;  // 用const 不變動
-        let bonus = 10;       // 用let 會改變
-        bonus = 100 */
+    // element 裡面attr 都可以更動
+    console.log("myBtn", myBtn);
+    myBtn.innerText = "12345";
 
-      // 2.action
+    // 變數使用情境 舉例 績效獎金比例
+    /* const bonus = 10;   // 用const 不變動
+      let bonus = 10;      // 用let 會改變
+      bonus = 100 */
 
-      // let const
-      // let 宣告變數
+    // 2.action
 
-      function name(params) {
-        let x = 10; // 在func裡面宣告變數
-      }
-      console.log("x", x);
+    // let const
+    // let 宣告變數
 
-      // console.log('name', name);
+    function name(params) {
+      let x = 10; // 在fn裡面 宣告變數 區域變數
+    }
+    console.log("x", x);
 
-      // php 改成 JS 的for迴圈寫法
-      // let sum = 0;
-      // for (let index = 0; index < array.length; index++) {
-      //     const element = array[index];
-      //     sum = sum + i;
-      // }
-    </script>
-  </body>
+    // console.log('name', name);
+
+    // php 改成 JS 的for迴圈寫法
+    // let sum = 0;
+    // for (let index = 0; index < array.length; index++) {
+    //     const element = array[index];
+    //     sum = sum + i;
+    // }
+  </script>
+</body>
+
 </html>
