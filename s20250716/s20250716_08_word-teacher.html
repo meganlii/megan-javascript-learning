@@ -10,8 +10,8 @@
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .card:hover{
-            box-shadow: 3px 3px lightgray;  
+        .card:hover {
+            box-shadow: 3px 3px lightgray;
             background-color: lightyellow;
             cursor: pointer
         }
@@ -21,55 +21,55 @@
 
 <body>
     <h2 class="text-center mt-3 bg-success text-white">BS5 card練習</h1>
-    <div class="container">
-        <div class="row my-row">
-            <!-- 動態生成的內容將會放在這裡 -->
-            <!-- <div class="col-12 col-sm-4 mt-3">
-                        <div class="box">
-                            <div class="card border-primary mb-3" style="max-width: 18rem;">
-                                <div class="card-header">id:${value.id}</div>
-                                <div class="card-body text-primary">
-                                    <h5 class="card-title">word:${value.word}</h5>
-                                    <p class="card-text">
-                                        ipa:${value.ipa}<br>
-                                        meaning_zh:${value.meaning_zh}<br>
-                                        example_en:${value.example_en}<br>
-                                        example_zh:${value.example_zh}
-                                    </p>
-                                </div>
+        <div class="container">
+            <div class="row my-row">
+                <!-- 動態生成的內容將會放在這裡 -->
+                <!-- <div class="col-12 col-sm-4 mt-3">
+                    <div class="box">
+                        <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">id:${value.id}</div>
+                            <div class="card-body text-primary">
+                                <h5 class="card-title">word:${value.word}</h5>
+                                <p class="card-text">
+                                    ipa:${value.ipa}<br>
+                                    meaning_zh:${value.meaning_zh}<br>
+                                    example_en:${value.example_en}<br>
+                                    example_zh:${value.example_zh}
+                                </p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                </div> -->
+            </div>
         </div>
-    </div>
 
 
-    <!-- 載入bs5 js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
-        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- 載入bs5 js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+            integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- 載入jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- 載入jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script src="./data/data.js"></script>
-    <script>
-        $(document).ready(function () {
+        <script src="./data/data.js"></script>
+        <script>
+            $(document).ready(function () {
 
-            // 1.bind
-            const myRow = $('.my-row');
+                // 1.bind
+                const myRow = $('.my-row');
 
-            // 2.action
+                // 2.action
 
-            console.log('data', data);
-            data.forEach(function (value, key) {
-                console.log('key', key);
-                console.log('value', value);
+                console.log('data', data);
+                data.forEach(function (value, key) {
+                    console.log('key', key);
+                    console.log('value', value);
 
-                // 改成 BS5 卡片 之前放錯位置 不是放在<body>
-                let tmpText = `
+                    // 改成 BS5 卡片 之前放錯位置 不是放在<body>
+                    let tmpText = `
                     <div class="col-12 col-sm-4 mt-3">
                         <div class="box">
                             <div class="card border-primary mb-3" style="max-width: 18rem;">
@@ -90,11 +90,11 @@
                     </div>
                     `; // 使用模板字串
 
-                myRow.append(tmpText); // 將字串加入到myRow中
-            });
+                    myRow.append(tmpText); // 將字串加入到myRow中
+                });
 
-        });
-    </script>
+            });
+        </script>
 </body>
 
 </html>
