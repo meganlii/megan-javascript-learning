@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>投籃大賽</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .scoreboard {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.3);
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
+
+    .scoreboard > div span {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      color: #ffd54f;
+      text-align: center;
+      line-height: 1;
+    }
+
+    h1.title {
+      text-align: center;
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow: 0 0 8px #ffd54f;
+      user-select: none;
+    }
+
+    .basket-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      height: 60vh;
+    }
+
+    .basket-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px #ffd54faa;
+      background: #191970bb;
+      padding: 8px;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .basket-container img:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .current-score {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fffde7;
+      width: 100px;
+      text-align: center;
+      user-select: none;
+      text-shadow: 1px 1px 6px #ff6f00;
+    }
+
+    .btn-group {
+      text-align: center;
+    }
+
+    button.btn {
+      min-width: 150px;
+      font-weight: 600;
+      font-size: 2rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
+      margin: 0 15px;
+      transition: all 0.2s ease;
+    }
+
+    button.btn-primary {
+      background-color: #ffd54f;
+      color: #1b1b1b;
+      border: none;
+    }
+
+    button.btn-primary:hover,
+    button.btn-primary:focus {
+      background-color: #ffca28;
+      color: #1b1b1b;
+      box-shadow: 0 0 12px #ffca28aa;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #eee;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title">🏀 投籃大賽 🏀</h1>
+
+  <div class="scoreboard" aria-label="比分板">
+    <div>剩餘時間/秒<span id="countdown">60</span></div>
+    <div>最高分數<span id="highScore">0</span></div>
+  </div>
+
+  <div class="basket-container" aria-label="投籃比分區">
+    <img src="./images/hoop.png" alt="左籃框" />
+    <div class="current-score" id="currentScore">100</div>
+    <img src="./images/ball2.png" alt="右籃球" />
+  </div>
+
+  <div class="btn-group">
+    <button id="startBtn" type="button" class="btn btn-primary">開始</button>
+    <button id="stopBtn" type="button" class="btn btn-primary">停止</button>
+  </div>
+
+  <!-- <footer>© 2025 投籃小遊戲</footer> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+  <script>
+    // // 可於此寫js互動程式碼
+    // $(function () {
+    //   // 範例：更新最高分數
+    //   let highScore = 0;
+    //   $('#startBtn').click(() => {
+    //     // 啟動遊戲邏輯
+    //     console.log("遊戲開始");
+    //   });
+    //   $('#stopBtn').click(() => {
+    //     // 停止遊戲邏輯
+    //     console.log("遊戲停止");
+    //   });
+    // });
+
+    $(function () {
+    let intervalTimer = null; // 控制倒數時間計時器
+    let timeLeft = 60;        // 剩餘秒數
+    let currentScore = 0;     // 目前分數
+
+    function updateCountdown() {
+      $('#countdown').text(timeLeft);
+    }
+
+    function updateScore() {
+      $('#currentScore').text(currentScore);
+    }
+
+    // 按開始
+    $('#startBtn').click(() => {
+      // 如果倒數計時尚未開始，開始倒數並重設分數
+      if (intervalTimer === null) {
+        timeLeft = 60;
+        currentScore = 2;   // 第一次按開始，分數從2開始
+        updateCountdown();
+        updateScore();
+
+        // 開始倒數計時
+        intervalTimer = setInterval(() => {
+          timeLeft--;
+          updateCountdown();
+
+          if (timeLeft <= 0) {
+            clearInterval(intervalTimer);
+            intervalTimer = null;
+          }
+        }, 1000);
+      } else {
+        // 倒數中，按開始時分數 +2（上限100）
+        if (currentScore < 100) {
+          currentScore += 2;
+          if (currentScore > 100) currentScore = 100;
+          updateScore();
+        }
+      }
+    });
+
+    // 按停止【修改處】
+    $('#stopBtn').click(() => {
+      // 停止倒數計時器
+      if (intervalTimer !== null) {
+        clearInterval(intervalTimer);
+        intervalTimer = null;
+      }
+      // 分數重置
+      currentScore = 0;
+      updateScore();
+
+      // 時間重置60秒顯示
+      timeLeft = 60;
+      updateCountdown();
+
+      console.log("遊戲停止與分數重置");
+    });
+  });
+</script>
+
+
+</body>
+
+</html>
