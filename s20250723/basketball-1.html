@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>投籃機小遊戲</title>
+    <!-- 載入bs5 css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+      integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #87ceeb, #fff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .game-container {
+        position: relative;
+        width: 400px;
+        height: 600px;
+        background-color: #fefefe;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        padding-top: 10px;
+      }
+
+      .hoop {
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+      }
+
+      .ball {
+        position: absolute;
+        width: 60px;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        cursor: grab;
+        transition: transform 0.3s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="game-container">
+      <h1>🏀 滑鼠投籃機小遊戲 🏀</h1>
+      <img src="images/hoop.png" alt="籃框" class="hoop" />
+      <img
+        src="images/basketball.png"
+        alt="籃球"
+        class="ball"
+        id="ball"
+        draggable="false"
+      />
+      <p>得分：<span id="score">0</span></p>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+      integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- 載入jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      let score = 0;
+      const ball = document.getElementById("ball");
+      const scoreDisplay = document.getElementById("score");
+      let isDragging = false;
+      let startX, startY;
+
+      // 滑鼠按下開始拖曳
+      ball.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        ball.style.cursor = "grabbing";
+      });
+
+      // 滑鼠放開時投籃
+      document.addEventListener("mouseup", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        ball.style.cursor = "grab";
+
+        const endX = e.clientX;
+        const endY = e.clientY;
+        const deltaX = endX - startX;
+        const deltaY = startY - endY; // 注意方向：上拋是正值
+
+        // 判斷投籃力量與角度
+        if (deltaY > 50) {
+          animateShot(deltaX, deltaY);
+        }
+      });
+
+      function animateShot(deltaX, deltaY) {
+        const distance = Math.min(deltaY, 200);
+        ball.style.transition = "transform 0.5s ease-out";
+        ball.style.transform = `translate(${deltaX * 0.5}px, -${distance}px)`;
+
+        // 投完0.5秒後重置球與判斷得分
+        setTimeout(() => {
+          checkScore(deltaX, deltaY);
+          ball.style.transition = "transform 0.3s ease-in";
+          ball.style.transform = "translateX(-50%)";
+        }, 600);
+      }
+
+      function checkScore(deltaX, deltaY) {
+        const absX = Math.abs(deltaX);
+        const absY = deltaY;
+
+        if (absX < 30 && absY > 120) {
+          score += 3;
+          alert("🎯 三分球命中！+3");
+        } else if (absX < 60 && absY > 80) {
+          score += 2;
+          alert("🏀 兩分球命中！+2");
+        } else {
+          alert("😢 沒進，加油！");
+        }
+        scoreDisplay.textContent = score;
+      }
+    </script>
+  </body>
+</html>

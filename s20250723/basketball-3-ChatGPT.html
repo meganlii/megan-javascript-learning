@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃大賽</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background: #f5f8fa;
+            font-family: "Microsoft JhengHei", sans-serif;
+        }
+
+        .game-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .score-box {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .game-image {
+            height: 50vh;
+            object-fit: contain;
+        }
+
+        .btn-game {
+            width: 150px;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        hr {
+            border-top: 2px solid #dee2e6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <!-- 標題區塊 -->
+        <div class="row game-header text-center">
+            <div class="col-4 text-start">
+                <div class="score-label">倒數計時</div>
+                <div class="score-box">60</div>
+            </div>
+            <div class="col-4">
+                <h3 class="mb-0">🏀 投籃大賽 🏀</h3>
+            </div>
+            <div class="col-4 text-end">
+                <div class="score-label">最高分數</div>
+                <div class="score-box">120</div>
+            </div>
+        </div>
+
+        <!-- 分數與圖片 -->
+        <div class="row text-center mt-4 align-items-center">
+            <div class="col-3">
+                <img src="./images/hoop.png" alt="左邊球" class="img-fluid game-image">
+            </div>
+            <div class="col-6">
+                <div class="score-label mb-2">目前得分</div>
+                <div class="score-box">100</div>
+            </div>
+            <div class="col-3">
+                <img src="./images/ball2.png" alt="右邊球" class="img-fluid game-image">
+            </div>
+        </div>
+
+        <!-- 按鈕 -->
+        <div class="row mt-5">
+            <div class="col text-center">
+                <button id="btnStart" class="btn btn-success btn-game me-3">開始</button>
+                <button id="btnStop" class="btn btn-danger btn-game">停止</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 可以在這裡寫開始/停止邏輯
+            $('#btnStart').click(function () {
+                alert("遊戲開始！");
+            });
+
+            $('#btnStop').click(function () {
+                alert("遊戲結束！");
+            });
+        });
+    </script>
+</body>
+
+</html>
