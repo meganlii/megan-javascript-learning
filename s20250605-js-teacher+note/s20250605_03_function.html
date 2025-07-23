@@ -1,117 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script>
-        // 定義-函式：沒有參數 (parameter)
-        // 1. 好寶寶章：蓋出一樣內容 呼叫函式 可重複使用
-        function good() {   // 1-1 宣告函式 函式名稱(){ }
-            console.log('good kai');
-        }
+      // 定義-函式：沒有參數 (parameter)
+      // 1. 好寶寶章：蓋出一樣內容 呼叫函式 可重複使用
+      function good() {
+              // 1-1 宣告函式 函式名稱(){ }
+        console.log("good kai");
+      }
 
-        good();        // 1-2 呼叫函式 沒有引數 出現字串 good kai
-        console.log('good', good);  // 輸出：上面整個函式
-
-
-        // 函式-參數：function 函式名稱 (參數1,參數2,...,參數n){ }
-        // 2. 日期印章：放多個日期
-        function setTimeFn(month, day) {
-            console.log(`${month} - ${day}`);
-            // 模板字串 組合文字和變數 `${變數名}`：反引號裝字串 $+{}裝變數
-
-        }
-        setTimeFn('12', '31');  //2-2 呼叫函式( ) 並傳入2個 引數
-        // 因為是引數 (argument) 所以有單引號' '
+      good(); // 1-2 呼叫函式 沒有引數 輸出字串 good kai
+              // 一定要呼叫函式 才能執行裡面的程式碼
+      console.log("good", good); // 輸出：上面整個函式
+      
 
 
-        // 函式-回傳值
-        // 3. 販賣機：掉出飲料 回傳值
-        function buy(money, opt) {
-            // money - 20
-            // 可樂
-
-            let result = `${money}, ${opt}`;  // 先宣告變數 之後才能return
-            // $result 常見於 jQuery 程式庫中（如 $('#id')） 一般變數命名不會用 $ 開頭
-
-            return result;                // return回傳值 拿變數裝
-            // 改成 return result
-        }
-
-        let data = buy(100, '可樂'); // 1. 呼叫函式 → 2. 取得回傳值 → 3. 指派給 data
-        console.log('data', data);  // 輸出：data 100, 可樂
-        // 變數data 接收 函式buy  回傳值 (變數=盒子 裝 回傳值)
-        // 變數data 儲存 函式的執行結果，不是函式本身！
-        // 呼叫函式 並將回傳值 指派給變數data
-
-        // 4. 販賣機+籃子裝飲料
-        function shopFn(money, item) {
-
-            // 4-1 函式內部 設定 *內部變數*
-            let tmpText = `${money} - ${item}`;
-            let returnMoney = 20;
-            let data = {
-                'money': money,
-                'item': item,
-                'returnMoney': returnMoney,
-                'bonus': '恭喜再來一罐',
-                'msg': '這個是奧客'
-            };
-            // return tmpText;
-
-            return data;
-            // 4-2 回傳物件
-            // 改寫箭頭函式 步驟
-            // 4-2-1 箭頭函式：簡化寫法步驟 預設fn藍色
-            // 1. function 改成 箭頭 => 也會出現藍色
-            // 2. 函式名稱 去掉
-            // 3. 括號()
-            //    如果有多個參數 必須保留括號()
-            //    如果只有一個參數 可以省略括號()
-            //    如果沒有參數 就必須保留括號()
-            // 4. 大括號{} 內部程式碼不變
-            // 省略括號() 和大括號{} 只適用於單行程式碼
-
-        }
-
-        // function shopFun(money, item) {  改成箭頭函式
-        let shopArrow = (money, item) => { }
-
-        // 4-3 呼叫函式 並將回傳值 指派給 *外部變數*
-        // 再拿籃子裝飲料 外部設變數接收
-        let result = shopFun(100, 1);
-        console.log('result', result);
+      // 函式-有參數：function 函式名稱 (參數1,參數2,...,參數n){ }
+      // 2. 日期印章：放多個日期
+      function setTimeFn(month, day) {
+      // 2-1 宣告函式 函式名稱(引數1,引數2){ }
+        console.log(`${month} - ${day}`);  // 輸出：12 - 31
+        // 模板字串 組合文字和變數 `${變數名}`：反引號裝字串 $+{}裝變數
+      }
+      
+      setTimeFn("12", "31"); 
+      // 2-2 呼叫函式( ) 並傳入2個 引數
+      // 因為是引數 (argument) 所以有單引號' '
 
 
+      // 函式-有回傳值
+      // 3. 販賣機：掉出飲料 回傳值
+      function buy(money, opt) {
+        // money - 20
+        // 可樂
 
-        // 生活比喻
-        function 洗衣服(input) {
-            let data = '洗好的衣服';
-            return data;
-        }
+        let result = `${money}, ${opt}`; // 先宣告變數 之後才能return
+        // $result 常見於 jQuery 程式庫中（如 $('#id')） 一般變數命名不會用 $ 開頭
 
-        function 烘衣服(input) {
-            let data = '烘好的衣服';
-            return data;
-        }
+        return result; // return回傳值 拿變數裝
+        // 改成 return result
+      }
 
-        let input = '髒衣服';
-        let 洗好的衣服 = 洗衣服(input);
-        let 烘好的衣服 = 烘衣服(input);
+      let data = buy(100, "可樂"); // 1. 呼叫函式 → 2. 取得回傳值 → 3. 指派給 data
+      
+      console.log("data", data);  // 輸出：data 100, 可樂
+      // 變數data 接收 函式buy  回傳值 (變數=盒子 裝 回傳值)
+      // 變數data 儲存 函式的執行結果，不是函式本身！
+      // 呼叫函式 並將回傳值 指派給變數data
 
-        // function 烘衣服()
+      // 4. 販賣機+籃子裝飲料
+      function shopFn(money, item) {
+        // 4-1 函式內部 設定 *內部變數*
+        let tmpText = `${money} - ${item}`;
+        let returnMoney = 20;
+        let data = {
+          money: money,
+          item: item,
+          returnMoney: returnMoney,
+          bonus: "恭喜再來一罐",
+          msg: "這個是奧客",
+        };
+        // return tmpText;
 
-        // function 摺衣服()
+        return data;
+        // 4-2 回傳物件
+        // 改寫箭頭函式 步驟
+        // 4-2-1 箭頭函式：簡化寫法步驟 預設fn藍色
+        // 1. function 改成 箭頭 => 也會出現藍色
+        // 2. 函式名稱 去掉
+        // 3. 括號()
+        //    如果有多個參數 必須保留括號()
+        //    如果只有一個參數 可以省略括號()
+        //    如果沒有參數 就必須保留括號()
+        // 4. 大括號{} 內部程式碼不變
+        // 省略括號() 和大括號{} 只適用於單行程式碼
+      }
 
+      // function shopFun(money, item) {  改成箭頭函式
+      let shopArrow = (money, item) => {};
 
+      // 4-3 呼叫函式 並將回傳值 指派給 *外部變數*
+      // 再拿籃子裝飲料 外部設變數接收
+      let result = shopFun(100, 1);
+      console.log("result", result);
 
+      // 生活比喻
+      function 洗衣服(input) {
+        let data = "洗好的衣服";
+        return data;
+      }
+
+      function 烘衣服(input) {
+        let data = "烘好的衣服";
+        return data;
+      }
+
+      let input = "髒衣服";
+      let 洗好的衣服 = 洗衣服(input);
+      let 烘好的衣服 = 烘衣服(input);
+
+      // function 烘衣服()
+
+      // function 摺衣服()
     </script>
-</body>
-
+  </body>
 </html>
