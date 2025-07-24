@@ -12,9 +12,9 @@
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* justify-content: center; */
       padding: 2rem 1rem;
     }
 
@@ -22,9 +22,9 @@
       background: rgba(255, 255, 255, 0.15);
       border-radius: 12px;
       padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      /* display: flex; */
+      /* justify-content: space-between; */
+      /* align-items: center; */
       font-weight: 700;
       font-size: 1.5rem;
       box-shadow: 0 4px 15px rgb(0 0 0 / 0.3);
@@ -54,9 +54,9 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 12px;
       padding: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-items: center; */
       gap: 5rem;
       margin-bottom: 2rem;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
@@ -129,22 +129,41 @@
 </head>
 
 <body>
-  <h1 class="title">🏀 投籃大賽 🏀</h1>
-
   <div class="scoreboard" aria-label="比分板">
-    <div>剩餘時間/秒<span id="countdown">60</span></div>
-    <div>最高分數<span id="highScore">0</span></div>
+    <div class="row">
+      <div class="col">
+        <h1 class="title col-12">🏀 投籃大賽 🏀</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 text-center">剩餘時間/秒<span id="countdown">60</span></div>
+      <div class="col-6 text-center">最高分數<span id="highScore">0</span></div>
+    </div>
   </div>
 
   <div class="basket-container" aria-label="投籃比分區">
-    <img class="img-fluid" src="./images/hoop.png" alt="左籃框"/>
-    <div class="current-score" id="currentScore">100</div>
-    <img class="img-fluid" src="./images/ball2.png" alt="右籃球"/>
+    <div class="row">
+      <div class="col-4">
+        <img src="./images/hoop.png" alt="左籃框"/>
+      </div>
+
+      <div class="col-4 current-score" id="currentScore">100</div>
+      
+      <div class="col-4">
+        <img src="./images/ball2.png" alt="右籃球"/>
+      </div>
+    
+    </div>
   </div>
 
-  <div class="btn-group">
-    <button id="startBtn" type="button" class="btn btn-primary">開始</button>
-    <button id="stopBtn" type="button" class="btn btn-primary">停止</button>
+  <div class="btn-group ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <button id="startBtn" type="button" class="btn btn-primary">開始</button>
+        <button id="stopBtn" type="button" class="btn btn-primary">停止</button>
+      </div>
+    </div>
   </div>
 
   <!-- <footer>© 2025 投籃小遊戲</footer> -->
