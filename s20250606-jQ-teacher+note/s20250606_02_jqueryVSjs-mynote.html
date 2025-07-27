@@ -37,7 +37,7 @@
         const myBtn = $("#myBtn");
 
         // jquery method 只能用jqery obj
-        console.log("boxJs", boxJs);
+        // console.log("boxJs", boxJs);
         console.log("boxJq", boxJq);
 
         // 2.action
@@ -46,6 +46,14 @@
         //         box.setAttribute('class', 'box bg-pink');
         //     })
 
+        boxJq.click(function (e) {
+          
+            boxJq.attr("class", "box bg-pink");
+            // 等同 $(this).attr('class', 'box bg-pink');
+
+        });
+
+      });
         // JQ .click( )
         // $(selector).click(function (e) {
         //     e.preventDefault();
@@ -55,12 +63,10 @@
         // $(selector).attr(attributeName);          // jqAttrGet
         // $(selector).attr(attributeName, value);   // jqAttrSet
 
-        box.click(function (e) {
-          // $(this).attr('class', 'box bg-pink');
-          box.attr("class", "box bg-pink");
-        });
+        // AI協作：先寫JS 再改成JQ 比較好閱讀
 
-      });
+
+
     </script>
   </body>
 </html>
