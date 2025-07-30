@@ -140,11 +140,11 @@
         btn.click(function () {
           console.log("this", this);
           
-          let tmpColor = $(this).attr("data-color");
+          let tmpColor = $(this).attr("data-color"); // 指向每個class="btn" 如果黃色button 輸出 "yellow"
           let tmpRank = $(this).attr("data-rank");
           // JS寫法 box.setAttribute ("class","bg-pink")
           
-          myBox.attr("class", `box bg-${tmpColor}`);
+          myBox.attr("class", `box bg-${tmpColor}`);  //  依照不同btn 輸出不同 bg-yellow bg-red
           
           // JQ寫法比較麻煩 要寫兩組 .addClass .removeClass
           // 老師沒講$(selector)用法
