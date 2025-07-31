@@ -46,6 +46,7 @@
             const myP = $("p");
             console.log('myP', myP);
 
+            
             const myPFirst = myP.first();
             console.log('myPFirst', myPFirst);
 
@@ -63,9 +64,15 @@
 
             // 2.action
             myPFirst.attr('class', 'text-primary');
+            // $("p").first().attr('class', 'text-primary');
+
             myPLast.attr('class', 'text-danger');
+            // $("p").last().attr('class', 'text-primary');
+
             // myPEq2.attr('class', 'text-success');
             greenP.attr('class', 'text-success');
+            // $('.greenP').attr('class', 'text-success');
+            
 
 
 

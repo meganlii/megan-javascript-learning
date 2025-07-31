@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box {
+            width: 100%;
+            height: 30vh;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .my-del {
+            text-decoration: line-through;
+            /* color: red; */
+            /* font-size: x-large; */
+        }
+
+        .my-font {
+            font-size: x-large;
+            color: red;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <script>
+        /**
+         * click
+         * 套用 BS5 card 放在col下面
+         * 查詢 html 文字刪除線 <del>text</del>
+         * 先用 中文寫下步驟 按下價格 出現一槓線 出現優惠價 用data-set append()
+         * 抓價格資料 再置換 用date-price 取代價格
+         * 
+         * append
+         **/
+    </script>
+    <!-- <div class=" btn btn-danger myA my-font">132</div> -->
+    <div class="containter">
+        <div class="row">
+            <div class="col-4 mt-3">
+                <div class="box">
+
+                    <!-- 步驟2 增加兩組class myA data-price="9000"-->
+                    <!-- <div class="btn btn-primary myA" data-price="9000" >10000</div> -->
+                    <span class="myA" data-price="9000">原價 10000</span>
+                </div>
+            </div>
+
+            <div class="col-4 mt-3">
+                <div class="box">
+                    <!-- <div class="btn btn-primary myA" data-price="15000" >20000</div> -->
+                    <span class="myA" data-price="15000">原價 20000</span>
+
+                </div>
+            </div>
+
+            <div class="col-4 mt-3">
+                <div class="box">
+                    <!-- <div class="btn btn-primary myA" data-price="22000" >30000</div> -->
+                    <span class="myA" data-price="22000">原價 30000</span>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            $(".myA").click(function (e) {
+                // 是否已有button
+                let thisNext = $(this).next();
+                // console.log('thisNext', thisNext);
+
+                // 
+                if (thisNext.length > 0) {
+                    return false;
+                }
+
+
+                // console.log('this', this);
+                let getPrice = $(this).attr('data-price');
+
+                // console.log('getPrice', getPrice);
+
+                $(this).attr('class', 'myA my-del')
+                // $(this).text(getPrice);
+
+                let content = `
+                <br><br>
+                <a href="#" class="btn btn-primary myA my-font">限時優惠 ${getPrice}</a>
+                `;
+
+                // parent
+                let thisParent = $(this).parent();
+                console.log('thisParent', thisParent);
+                thisParent.append(content);
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

@@ -182,6 +182,15 @@ $('.toggle-btn').click(function() {
     }
 });
 
+// 參考寫法 
+// https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_misc_each
+$("button").click(function(){
+$("li").each(function(){
+    alert($(this).text())
+});
+});
+
+
 // 場景 2：表單驗證
 $('.form-input').blur(function() {
     const value = $(this).val();

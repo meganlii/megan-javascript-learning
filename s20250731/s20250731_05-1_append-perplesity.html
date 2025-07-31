@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .my-del {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .my-font {
+            font-size: 1.5rem;
+            color: #d9534f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://picsum.photos/id/1010/400/200" class="card-img-top" alt="商品圖片1" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">商品一</h5>
+                        <span class="myA card-text fw-bold fs-5" data-price="9000">原價 <span
+                                class="text-muted">10000</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://picsum.photos/id/1011/400/200" class="card-img-top" alt="商品圖片2" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">商品二</h5>
+                        <span class="myA card-text fw-bold fs-5" data-price="15000">原價 <span
+                                class="text-muted">20000</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="https://picsum.photos/id/1012/400/200" class="card-img-top" alt="商品圖片3" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">商品三</h5>
+                        <span class="myA card-text fw-bold fs-5" data-price="22000">原價 <span
+                                class="text-muted">30000</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            $(".myA").click(function (e) {
+                // 僅點擊一次產生優惠
+                let thisNext = $(this).next();
+                if (thisNext.length > 0) {
+                    return false;
+                }
+                let getPrice = $(this).attr("data-price");
+                $(this).addClass("my-del");
+                let content = `
+            <br>
+            <a href="#" class="btn btn-danger myA my-font mt-2">限時優惠 ${getPrice}</a>
+            `;
+                $(this).parent().append(content);
+            });
+        });
+    </script>
+</body>
+
+</html>
