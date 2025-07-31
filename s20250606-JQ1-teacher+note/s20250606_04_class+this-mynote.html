@@ -140,21 +140,42 @@
         btn.click(function () {
           console.log("this", this);
           
-          let tmpColor = $(this).attr("data-color"); // 指向每個class="btn" 如果黃色button 輸出 "yellow"
-          let tmpRank = $(this).attr("data-rank");
+          // $(this) 指的是「被點擊的那個 .btn-class 按鈕」
+          let tmpColor = $(this).attr("data-color"); // 取得該按鈕的父元素
+          let tmpRank = $(this).attr("data-rank");   // 取得該按鈕的 data-color 屬性
           // JS寫法 box.setAttribute ("class","bg-pink")
           
           myBox.attr("class", `box bg-${tmpColor}`);  //  依照不同btn 輸出不同 bg-yellow bg-red7/30
           
+
+        });
+      });
+
           // JQ寫法比較麻煩 要寫兩組 .addClass .removeClass
           // 老師沒講$(selector)用法
           // $(selector).addClass(classNames);
           // $(selector).addClass(`bg-${tmpColor}`);
           // $(selector).removeClass(classNames);
           // bg-${變數名}
-        });
-      });
 
+          /**
+         【你的程式碼解釋】
+          當點擊任何 .btn-class 按鈕時：
+          - $(this) = 被點擊的那個按鈕
+          - $(this).parent() = 該按鈕的父元素
+          - $(this).attr('data-color') = 該按鈕的 data-color 屬性值
+          - 最終效果：改變父元素的 class 名稱
+
+          情境 1：點擊藍色按鈕
+          $(this) = 藍色按鈕
+          $(this).attr('data-color') = "blue"
+          $(this).parent() = 包含藍色按鈕的父元素
+
+          情境 2：點擊紅色按鈕
+          $(this) = 紅色按鈕
+          $(this).attr('data-color') = "red"
+          $(this).parent() = 包含紅色按鈕的父元素
+          **/
       
     </script>
   </body>
