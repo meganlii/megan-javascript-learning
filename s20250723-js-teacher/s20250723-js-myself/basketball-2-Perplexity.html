@@ -32,7 +32,7 @@
       user-select: none;
     }
 
-    .scoreboard > div span {
+    .scoreboard>div span {
       display: block;
       font-size: 2rem;
       letter-spacing: 1.5px;
@@ -140,15 +140,15 @@
   <div class="basket-container" aria-label="投籃比分區">
     <div class="row">
       <div class="col-4">
-        <img src="./images/hoop.png" alt="左籃框"/>
+        <img src="./images/hoop.png" alt="左籃框" />
       </div>
 
       <div class="col-4 current-score" id="currentScore">100</div>
-      
+
       <div class="col-4">
-        <img src="./images/ball2.png" alt="右籃球"/>
+        <img src="./images/ball2.png" alt="右籃球" />
       </div>
-    
+
     </div>
   </div>
 
@@ -165,7 +165,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  
+
   <script>
     // // 可於此寫js互動程式碼
     // $(function () {
@@ -182,66 +182,66 @@
     // });
 
     $(function () {
-    let intervalTimer = null; // 控制倒數時間計時器
-    let timeLeft = 60;        // 剩餘秒數
-    let currentScore = 0;     // 目前分數
+      let intervalTimer = null; // 控制倒數時間計時器
+      let timeLeft = 60;        // 剩餘秒數
+      let currentScore = 0;     // 目前分數
 
-    function updateCountdown() {
-      $('#countdown').text(timeLeft);
-    }
+      function updateCountdown() {
+        $('#countdown').text(timeLeft);
+      }
 
-    function updateScore() {
-      $('#currentScore').text(currentScore);
-    }
+      function updateScore() {
+        $('#currentScore').text(currentScore);
+      }
 
-    // 按開始
-    $('#startBtn').click(() => {
-      // 如果倒數計時尚未開始，開始倒數並重設分數
-      if (intervalTimer === null) {
-        timeLeft = 60;
-        currentScore = 2;   // 第一次按開始，分數從2開始
-        updateCountdown();
+      // 按開始
+      $('#startBtn').click(() => {
+        // 如果倒數計時尚未開始，開始倒數並重設分數
+        if (intervalTimer === null) {
+          timeLeft = 60;
+          currentScore = 2;   // 第一次按開始，分數從2開始
+          updateCountdown();
+          updateScore();
+
+          // 開始倒數計時
+          intervalTimer = setInterval(() => {
+            timeLeft--;
+            updateCountdown();
+
+            if (timeLeft <= 0) {
+              clearInterval(intervalTimer);
+              intervalTimer = null;
+            }
+          }, 1000);
+        } else {
+          // 倒數中，按開始時分數 +2（上限100）
+          if (currentScore < 100) {
+            currentScore += 2;
+            if (currentScore > 100) currentScore = 100;
+            updateScore();
+          }
+        }
+      });
+
+      // 按停止【修改處】
+      $('#stopBtn').click(() => {
+        // 停止倒數計時器
+        if (intervalTimer !== null) {
+          clearInterval(intervalTimer);
+          intervalTimer = null;
+        }
+        // 分數重置
+        currentScore = 0;
         updateScore();
 
-        // 開始倒數計時
-        intervalTimer = setInterval(() => {
-          timeLeft--;
-          updateCountdown();
+        // 時間重置60秒顯示
+        timeLeft = 60;
+        updateCountdown();
 
-          if (timeLeft <= 0) {
-            clearInterval(intervalTimer);
-            intervalTimer = null;
-          }
-        }, 1000);
-      } else {
-        // 倒數中，按開始時分數 +2（上限100）
-        if (currentScore < 100) {
-          currentScore += 2;
-          if (currentScore > 100) currentScore = 100;
-          updateScore();
-        }
-      }
+        console.log("遊戲停止與分數重置");
+      });
     });
-
-    // 按停止【修改處】
-    $('#stopBtn').click(() => {
-      // 停止倒數計時器
-      if (intervalTimer !== null) {
-        clearInterval(intervalTimer);
-        intervalTimer = null;
-      }
-      // 分數重置
-      currentScore = 0;
-      updateScore();
-
-      // 時間重置60秒顯示
-      timeLeft = 60;
-      updateCountdown();
-
-      console.log("遊戲停止與分數重置");
-    });
-  });
-</script>
+  </script>
 
 
 </body>

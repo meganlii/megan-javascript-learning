@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>投籃大賽</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: #fff;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .scoreboard {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.3);
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
+
+    .scoreboard>div span {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+      color: #ffd54f;
+      text-align: center;
+      line-height: 1;
+    }
+
+    h1.title {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 8px #ffd54f;
+      user-select: none;
+    }
+
+    /* 使用Bootstrap字型等級, 自適應大小 */
+    /* @media (min-width: 768px) {
+      h1.title {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      h1.title {
+        font-size: 2.5rem;
+      }
+    } */
+
+    .basket-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      flex-wrap: wrap;
+      /* 小螢幕轉換成多行 */
+      height: auto;
+      /* 取消固定高度 */
+    }
+
+    .basket-container img {
+      width: 70%;
+      max-width: 200px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px #ffd54faa;
+      background: #191970bb;
+      padding: 8px;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+
+    .basket-container img:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .current-score {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fffde7;
+      width: 100px;
+      text-align: center;
+      user-select: none;
+      text-shadow: 1px 1px 6px #ff6f00;
+      flex-shrink: 0;
+      margin: 0 20px;
+    }
+
+    .btn-group {
+      text-align: center;
+    }
+
+    button.btn {
+      min-width: 140px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      /* 按鈕字型縮小，更適合手機 */
+      padding: 0.6rem 1.5rem;
+      border-radius: 30px;
+      box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
+      margin: 0 15px 15px;
+      transition: all 0.2s ease;
+    }
+
+    button.btn-primary {
+      background-color: #ffd54f;
+      color: #1b1b1b;
+      border: none;
+    }
+
+    button.btn-primary:hover,
+    button.btn-primary:focus {
+      background-color: #ffca28;
+      color: #1b1b1b;
+      box-shadow: 0 0 12px #ffca28aa;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第一區 標題區 -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="title display-1">🏀 投籃大賽 🏀</h1>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="scoreboard" aria-label="比分板">
+    <div class="row text-center">
+      <div class="col-6 col-md-6">
+        剩餘時間/秒 <span id="countdown">60</span>
+      </div>
+      <div class="col-6 col-md-6">最高分數 <span id="highScore">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 第二區 投籃比分區 -->
+  <!-- 加上RWD 要加上 .row .col兩個區塊 -->
+  <div class="basket-container" aria-label="投籃比分區">
+    <div class="row w-100 justify-content-center align-items-center text-center">
+      <div class="col-4 col-md-4">
+        <img src="./images/hoop.png" alt="左籃框" class="img-fluid rounded-circle shadow" />
+      </div>
+
+      <div class="col-4 col-md-4 current-score d-flex justify-content-center align-items-center" id="currentScore"
+        style="font-size: 3rem; font-weight: 700">
+        100
+      </div>
+
+      <div class="col-4 col-md-4">
+        <img src="./images/ball2.png" alt="右籃球" class="img-fluid rounded-circle shadow" />
+      </div>
+    </div>
+  </div>
+
+  <!-- 第三區 按鈕區-->
+  <!-- 加上RWD 要加上 .row .col兩個區塊 -->
+  <div class="btn-group w-100">
+    <div class="row justify-content-center">
+      <div class="col-6 col-md-6 d-flex justify-content-center mb-2">
+        <button id="startBtn" type="button" class="btn btn-primary w-100">
+          開始
+        </button>
+      </div>
+      <div class="col-6 col-md-6 d-flex justify-content-center mb-2">
+        <button id="stopBtn" type="button" class="btn btn-primary w-100">
+          停止
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 沒有RWD -->
+  <!-- <div class="btn-group">
+    <button id="startBtn" type="button" class="btn btn-primary">開始</button>
+    <button id="stopBtn" type="button" class="btn btn-primary">停止</button>
+  </div> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+    $(function () {
+      let intervalTimer = null; // 控制倒數時間計時器
+      let timeLeft = 60; // 剩餘秒數
+      let currentScore = 0; // 目前分數
+
+      function updateCountdown() {
+        $("#countdown").text(timeLeft);
+      }
+
+      function updateScore() {
+        $("#currentScore").text(currentScore);
+      }
+
+      // 按開始
+      $("#startBtn").click(() => {
+        if (intervalTimer === null) {
+          timeLeft = 60;
+          currentScore = 2;
+          updateCountdown();
+          updateScore();
+
+          intervalTimer = setInterval(() => {
+            timeLeft--;
+            updateCountdown();
+
+            if (timeLeft <= 0) {
+              clearInterval(intervalTimer);
+              intervalTimer = null;
+            }
+          }, 1000);
+        } else {
+          // 倒數中按開始，分數加2（上限100）
+          if (currentScore < 100) {
+            currentScore += 2;
+            if (currentScore > 100) currentScore = 100;
+            updateScore();
+          }
+        }
+      });
+
+      // 按停止
+      $("#stopBtn").click(() => {
+        if (intervalTimer !== null) {
+          clearInterval(intervalTimer);
+          intervalTimer = null;
+        }
+        currentScore = 0;
+        updateScore();
+
+        timeLeft = 60;
+        updateCountdown();
+
+        console.log("遊戲停止與分數重置");
+      });
+    });
+  </script>
+</body>
+
+</html>
