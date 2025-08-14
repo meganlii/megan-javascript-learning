@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h2>氣象預報 36 小時資料</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>0-12</th>
+                    <th>12-24</th>
+                    <th>24-36</th>
+
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>新北市</td>
+                    <td>27-34</td>
+                    <td>27-31</td>
+                    <td>27-34</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入pwd -->
+    <!-- .gitignore -->
+    <!-- /pw -->
+    <!-- /pw/pw.js -->
+    <!-- let pw = 'your password' -->
+    <script src="../pw/pw.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            // 1.bind
+            let pwd = pw;
+            console.log('pwd', pwd);
+
+            const myTbody = $('#myTbody');
+
+            // 2.action init
+            // let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+            let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+            $.ajax({
+                type: "get",
+                url: url,
+                // data: "data",
+                dataType: "json",
+                success: function (response) {
+                    console.log('response', response);
+                    // let data = response.records.location[0].locationName;
+
+                    let data = response.records.location;
+
+                    let tmpText = ``;
+
+
+                    $.each(data, function (key, value) {
+
+                        // 符號改成+= 遞增?  ${key+1}
+                        // += 是一個複合賦值運算符，表示將左側的變數加上右側的值，
+                        // 然後將結果賦值給左側的變數。a += b 相當於 a = a + b
+
+                        // minT
+                        let minT12 = value.weatherElement[2].time[0].parameter.parameterName;
+                        let minT24 = value.weatherElement[2].time[1].parameter.parameterName;
+                        let minT36 = value.weatherElement[2].time[2].parameter.parameterName;
+
+                        // maxT
+                        let maxT12 = value.weatherElement[4].time[0].parameter.parameterName;
+                        let maxT24 = value.weatherElement[4].time[1].parameter.parameterName;
+                        let maxT36 = value.weatherElement[4].time[2].parameter.parameterName;
+
+
+                        tmpText += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${minT12}-${maxT12} &deg;C </td>
+                            <td>${minT24}-${maxT24} &deg;C </td>
+                            <td>${minT36}-${maxT36} &deg;C </td>
+                        </tr>                        
+                        `
+                        // console.log('key', key);
+                        // console.log('value', value.locationName);
+                    });
+
+                    myTbody.append(tmpText);
+
+                    console.log('data', data);
+
+
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>
