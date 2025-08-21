@@ -20,27 +20,27 @@
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="臺北市">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="臺北市">
                         <label class="form-check-label" for="inlineCheckbox2">臺北市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="新北市">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="新北市">
                         <label class="form-check-label" for="inlineCheckbox2">新北市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="臺中市">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="臺中市">
                         <label class="form-check-label" for="inlineCheckbox2">臺中市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="高雄市">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="高雄市">
                         <label class="form-check-label" for="inlineCheckbox2">高雄市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="宜蘭縣">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="宜蘭縣">
                         <label class="form-check-label" for="inlineCheckbox2">宜蘭縣</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="全部">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="全部">
                         <label class="form-check-label" for="inlineCheckbox2">全部</label>
                     </div>
 
@@ -57,15 +57,26 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <button id="myBtn" type="button" class="btn btn-primary" data-location="臺北市">臺北市</button>
-                <button type="button" class="btn btn-primary">新北市</button>
-                <button type="button" class="btn btn-primary">臺中市</button>
-                <button type="button" class="btn btn-primary">高雄市</button>
-                <button type="button" class="btn btn-primary">宜蘭縣</button>
+                <button id="myBtn" type="button" class="btn btn-primary btn-class" data-location="臺北市">臺北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="新北市">新北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="臺中市">臺中市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="高雄市">高雄市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="宜蘭縣">宜蘭縣</button>
             </div>
         </div>
     </div>
 
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <label for="sel1" class="form-label">Select list (select one):</label>
+                <select id="mySelect" class="form-select" id="sel1" name="sellist1">
+                    <!-- <option>新北市</option> -->
+                </select>
+            </div>
+        </div>
+    </div>
     <hr>
 
     <div class="container mt-3">
@@ -118,14 +129,21 @@
             const myTbody = $('#myTbody');
             const myForm = $('#myForm');
             const myBtn = $('#myBtn');
+            const btnClass = $('.btn-class');
+            const mySelect = $('#mySelect');
             // console.log('data', data);
 
 
             // 2.action
 
             // myBtn click
-            myBtn.click(function (e) {
+            btnClass.click(function (e) {
                 e.preventDefault();
+                // 當我按下btn , checkbox 取消選取
+                // $('input[type=checkbox]').prop("checked", false);
+                $('.my-checkbox').prop("checked", false);
+
+
                 console.log('myBtn ok');
                 let getLocation = $(this).attr('data-location');
                 console.log('getLocation', getLocation);
@@ -142,6 +160,12 @@
                 // jquery
                 // return false = break
                 // return true = continue
+
+                // data 裡面 有沒有getLocation
+                // let index = data.indexOf(getLocation);
+                // console.log('index', index);
+                // data locationName 是在第二層 所以沒法使用indexOf method
+
 
                 // https://chatgpt.com/share/68a425d1-e330-800a-b435-0754cbda824b
                 $.each(data, function (key, value) {
@@ -169,7 +193,10 @@
             });
 
 
+
+            // init 
             let content = ``;
+            let selectContent = ``;
             $.each(data, function (key, value) {
                 // console.log('key', key);
                 // console.log('value', value);
@@ -182,9 +209,15 @@
                     <td>${value.time[2].minT}-${value.time[2].maxT}</td>
                  </tr>
                 `;
+
+                selectContent += `
+                <option>${value.locationName}</option>
+                `;
             });
 
             myTbody.append(content);
+            mySelect.append(selectContent);
+            
 
             // form submit
             myForm.submit(function (e) {
