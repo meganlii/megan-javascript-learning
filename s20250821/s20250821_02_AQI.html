@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+      integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style></style>
+  </head>
+
+  <body>
+    <!-- json資料 -->
+
+    <!-- "sitename": "新莊",
+    "aqi": "44",
+    "status": "良好",
+    "publishtime": "2025\/08\/19 10:00:00", -->
+
+    <!-- 1.form/submit 多選查詢 -->
+    <!-- 使用bs5 Buttons / Checkboxes / form-check-inline -->
+    <!-- 官網才完整 https://getbootstrap.com/docs/5.3/forms/checks-radios/ -->
+    <!-- 整理結構 <form>放最外層 <button>放div裡面 -->
+
+    <div class="container mt-5">
+      <h2>一、多選查詢</h2>
+      <!-- 增加 id="myForm" -->
+      <!-- 增加 name="my-check[]"   移除id 更改value  -->
+      <!-- 增加 my-checkbox -->
+      <form id="myForm" action="">
+        <div class="row">
+          <div class="col">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input my-checkbox"
+                name="my-check[]"
+                type="checkbox"
+                id=""
+                value="良好"
+              />
+              <label class="form-check-label" for="inlineCheckbox1">良好</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input my-checkbox"
+                name="my-check[]"
+                type="checkbox"
+                id=""
+                value="普通"
+              />
+              <label class="form-check-label" for="inlineCheckbox2">普通</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input my-checkbox"
+                name="my-check[]"
+                type="checkbox"
+                id=""
+                value="對敏感族群不健康"
+              />
+              <label class="form-check-label" for="inlineCheckbox3"
+                >對敏感族群不健康</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-info mt-3" type="submit">submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- 1.form/submit 多選查詢 end -->
+
+    <!-- 2.btn按鈕查詢-->
+    <!-- 增加 id="myBtn"  -->
+    <!-- 增加 class  btn-class / data-status -->
+    <hr />
+    <div class="container">
+      <h2>二、按鈕查詢</h2>
+      <div class="row">
+        <div class="col">
+          <button
+            id="myBtn"
+            type="button"
+            class="btn btn-primary btn-class me-3"
+            data-status="良好"
+          >
+            良好
+          </button>
+          <button
+            type="button"
+            class="btn btn-success btn-class me-3"
+            data-status="普通"
+          >
+            普通
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger btn-class me-3"
+            data-status="對敏感族群不健康"
+          >
+            對敏感族群不健康
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <!-- 2.btn按鈕查詢 end -->
+
+    <!-- 3.下拉選單查詢 -->
+    <!-- 不需要提交 不用<form> -->
+    <!-- 兩種類型下拉選單  再複製一組 <div class="col"> -->
+    <!-- 新增 id="mySelect" 之後append status資料 -->
+    <div class="container">
+      <h2>三、下拉選單查詢</h2>
+      <div class="row">
+        <div class="col">
+          <label for="sel1" class="form-label"></label>
+          <select id="mySelect" class="form-select" id="sel1" name="sellist1">
+            <!--<option value="良好">良好</option>
+<option value="普通">普通</option>
+<option value="對敏感族群不健康">對敏感族群不健康</option> -->
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- 3.下拉選單查詢 end -->
+
+    <!-- 數據 -->
+    <div class="container mt-3">
+      <h2>空氣品質指標(AQI)</h2>
+      <p>資料來源 <a href="">https://data.gov.tw/dataset/40448</a></p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>地區</th>
+            <th>空氣品質指標(AQI)</th>
+            <th>狀態status</th>
+            <th>時間publishtime</th>
+          </tr>
+        </thead>
+        <tbody id="myTbody">
+          <!-- <tr>
+        <td>1</td>
+        <td>新莊</td>
+        <td>44</td>
+        <td>良好</td>
+        <td>2025\/08\/19 10:00:00</td>
+        </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 載入bs5 js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+      integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- 載入jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- get data -->
+
+    <!-- load js -->
+    <!--ajax json -->
+
+    <!-- 新資料格式 之後貼給ai轉json檔
+    let newAQI = [
+    {
+    "id": 1,
+    "sitename": "新莊",
+    "aqi": "44",
+    "status": "良好",
+    "publishtime": "2025\/08\/19 10:00:00"
+    },
+    ] -->
+
+    <!-- 
+    let content = ``; → 空容器，準備放 <tr>。
+    $.each(data, ...) → 逐筆把 JSON 資料變成 HTML 列。
+    foreach會將陣列中的元素 拆成key和value兩個變數
+    content += ... → 累加字串，避免一筆一筆 append（效能比較好）。
+    myTbody.append(content); → 一次把所有列丟進表格。
+    -->
+
+    <script src="./data/newAQI.js"></script>
+
+    <script>
+      // 先將json改成.js 並設定變數 let aqiData = []
+      // 增加 const myForm
+      // 增加 const myBtn
+      // 增加 const btnClass
+      // 增加 const mySelect
+      $(document).ready(function () {
+        // 1.bind
+        const data = newAQI;
+        // console.log('data', data);
+
+        const myTbody = $("#myTbody");
+        const myForm = $("#myForm");
+        const myBtn = $("#myBtn");
+        const btnClass = $(".btn-class");
+        const mySelect = $("#mySelect");
+
+        // 初始化 全部資料
+        // 網頁一打開就能先顯示完整資料和選單
+        // 事件處理（click / change / submit）裡 →
+        // 每次篩選前，要 重設 content，但 selectContent 不需要每次重設。
+
+        // 1.新增 let content
+        // 一開始網頁載入時 把 所有AQI資料 都列在表格中（完整清單）
+        // 建立一個空字串，用來存放 <tr> 的 HTML 內容
+        let content = ``;
+
+        // 2.新增 let selectContent
+        // 下拉選單選項
+        let selectContent = ``;
+
+        // 3. 迴圈跑整個 data 陣列 (每一筆 AQI 資料)
+        // key 是索引 (0,1,2,...)，value 是每一筆 JSON 物件
+        // 顯示流水號 (從 1 開始)
+        $.each(data, function (key, value) {
+          // console.log('key', key);
+          // console.log('value', value);
+
+          // 新增 content
+          // 逐筆把資料轉換成一列 <tr>，並 累加到 content 變數裡
+          content += `
+            <tr>
+            <td>${key + 1}</td>  
+            <td>${value.sitename}</td>
+            <td>${value.aqi}</td>
+            <td>${value.status}</td>
+            <td>${value.publishtime}</td>
+            </tr>
+            `;
+
+          // 新增 selectContent
+          // 錯誤寫法
+          // 把所有資料的 status 值塞進 <select>：
+          // selectContent += `
+          // <option>${value.status}</option>
+          // `;
+
+          // 直接建立固定三個選項
+          selectContent = `
+          <option value="請選擇">請選擇</option>
+          <option value="良好">良好</option>
+          <option value="普通">普通</option>
+          <option value="對敏感族群不健康">對敏感族群不健康</option>
+          `;
+        });
+
+        // 3. 新增資料
+        // 把組好的所有 <tr> 一次性塞進表格的 <tbody>
+        myTbody.append(content);
+        mySelect.append(selectContent);
+
+        // 2.action
+        // 更改{ }變數
+
+        // 1. 多選查詢區 form submit
+        // 綁定 submit 事件
+        // 已經先初始化資料 let content =
+        myForm.submit(function (e) {
+          // 阻止表單預設行為（避免頁面重新整理）
+          e.preventDefault();
+
+          // get form data
+          // 2. 取得表單序列化資料
+          // (serializeArray 會把 name="my-check[]" 勾選的值存成陣列)
+          let formData = myForm.serializeArray();
+
+          // 建立一個空陣列，存放使用者勾選的 status 值
+          let statusArr = []; // 我勾選的資料
+
+          // reset table
+          // 3. 重設表格內容
+          content = ""; // 清空字串
+          myTbody.html(""); // 清空表格
+
+          // 4. 把勾選的 checkbox 值存進 statusArr
+          $.each(formData, function (key, value) {
+            console.log("value", value);
+
+            // array push
+            // value.value 就是 checkbox 的值 (良好 / 普通 / 對敏感族群不健康)
+            statusArr.push(value.value);
+          });
+          console.log("formData", formData);
+          console.log("statusArr", statusArr);
+
+          // show data
+          // 5. 跑迴圈比對資料 data，若該筆的 status 在 statusArr 中，就顯示
+          $.each(data, function (key, value) {
+            let tmpStatus = value.status; // 每筆資料的狀態
+            let index = statusArr.indexOf(tmpStatus); // 檢查是否存在於 statusArr
+            console.log("tmpStatus", tmpStatus);
+            console.log("index", index);
+
+            if (index !== -1) {
+              // 如果找到 (index >= 0)，表示有勾選該狀態
+              content += `
+                <tr>
+                <td>${key + 1}</td>
+                <td>${value.sitename}</td>
+                <td>${value.aqi}</td>
+                <td>${value.status}</td>
+                <td>${value.publishtime}</td>
+                </tr>
+                `;
+            }
+          });
+
+          // 6. 把組好的 <tr> 內容插入到表格
+          console.log("content", content);
+          myTbody.append(content);
+          // show data end
+        });
+        // 多選查詢區 end
+
+        // 2. 按鈕查詢 myBtn click
+        // 綁定 click 事件
+        btnClass.click(function (e) {
+          // 阻止預設事件（避免觸發 form submit 之類）
+          e.preventDefault();
+
+          // 按下btn , checkbox 取消選取，避免干擾
+          // $('input[type=checkbox]').prop("checked", false);
+          $(".my-checkbox").prop("checked", false);
+
+          console.log("myBtn ok");
+
+          // 取得按鈕的 data-status 屬性值 (良好 / 普通 / 對敏感族群不健康)
+          let getStatus = $(this).attr("data-status");
+          // console.log("getStatus", getStatus);
+
+          myTbody.html("");
+          content = ``;
+
+          // 遍歷整個資料集，篩選出符合狀態的資料
+          $.each(data, function (key, value) {
+            console.log("key", key);
+            console.log("value", value);
+
+            if (getStatus == value.status) {
+              content += `
+              <tr>
+              <td>${key + 1}</td>
+              <td>${value.sitename}</td>
+              <td>${value.aqi}</td>
+              <td>${value.status}</td>
+              <td>${value.publishtime}</td>
+              </tr>
+              `;
+              // return false;
+              // 代表「停止整個迴圈」(break)
+              // 一旦找到符合條件的第一筆，就直接結束
+            }
+          });
+          myTbody.append(content);
+        });
+
+        // 2  按鈕查詢 myBtn click end
+
+        // 3.下拉選單
+        // 綁定 change 事件
+        mySelect.change(function () {
+          // e.preventDefault();
+          $(".my-checkbox").prop("checked", false);
+
+          let getStatus = $(this).val();
+          content = "";
+          myTbody.html("");
+
+          // 遍歷資料集，篩選出符合狀態的資料
+          $.each(data, function (key, value) {
+            if (getStatus === value.status) {
+              content += `
+              <tr>
+              <td>${key + 1}</td>
+              <td>${value.sitename}</td>
+              <td>${value.aqi}</td>
+              <td>${value.status}</td>
+              <td>${value.publishtime}</td>
+              </tr>
+              `;
+            }
+          });
+
+          myTbody.append(content);
+        });
+
+        // 3.下拉選單 end
+      });
+    </script>
+  </body>
+</html>

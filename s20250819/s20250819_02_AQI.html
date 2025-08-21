@@ -67,7 +67,7 @@
     <!-- 增加 class  btn-class / data-status -->
     <hr>
     <div class="container">
-        <h2>二、按鈕查詢</h2>
+        <h2>二、按鈕查詢-有問題 只跑一筆資料</h2>
         <div class="row">
             <div class="col">
                 <button id="myBtn" type="button" class="btn btn-primary btn-class me-3" data-status="良好">良好</button>
@@ -81,13 +81,19 @@
     <!-- 2.btn按鈕查詢 end -->
 
     <!-- 3.下拉選單查詢 -->
-
-
-
-
-
-
-
+    <!-- 不需要提交 不用<form> -->
+    <div class="container">
+        <h2>三、下拉選單查詢</h2>
+        <div class="row">
+            <div class="col">
+                <label for="sel1" class="form-label">Select list (select one):</label>
+                <select id="mySelect" class="form-select" id="sel1" name="sellist1">
+                    <!-- <option>良好</option> -->
+                </select>
+            </div>
+        </div>
+    </div>
+    <hr>
 
     <!-- 3.下拉選單查詢 end -->
 
@@ -138,6 +144,7 @@
         // 增加 const myForm
         // 增加 const myBtn
         // 增加 const btnClass
+        // 增加 const mySelect
         $(document).ready(function () {
             // 1.bind
             const data = newAQI;
@@ -145,6 +152,7 @@
             const myForm = $("#myForm");
             const myBtn = $('#myBtn');
             const btnClass = $('.btn-class');
+            const mySelect = $('#mySelect');
             // console.log('data', data);
 
             // 資料新格式 之後貼給ai轉json檔
@@ -161,13 +169,12 @@
             // 2.action
             // 更改{ }變數
 
-            // myBtn click
+            // 按鈕查詢myBtn click
             btnClass.click(function (e) {
                 e.preventDefault();
                 $('.my-checkbox').prop("checked", false);
 
                 console.log('myBtn ok');
-
                 let getStatus = $(this).attr('data-status');
                 console.log('getStatus', getStatus);
 
@@ -188,37 +195,48 @@
                             <td>${value.publishtime}</td>
                         </tr>
                         `;
-
                         return false;
                     }
-
                 });
-
                 myTbody.append(content);
-
             });
 
 
+            // 3.init 
+            // 新增 let content
+            // 新增 let selectContent
             let content = ``;
+            let selectContent = ``;
             $.each(data, function (key, value) {
                 // console.log('key', key);
                 // console.log('value', value);
+
+                // 新增 content
                 content += `
-                 <tr>
+                <tr>
                     <td>${key + 1}</td>
                     <td>${value.sitename}</td>
                     <td>${value.aqi}</td>
                     <td>${value.status}</td>
                     <td>${value.publishtime}</td>
-                 </tr>
+                </tr>
+                `;
+
+                // 新增 selectContent
+                selectContent += `
+                <option>${value.status}</option>
                 `;
             });
 
+            // 4.新增資料
             myTbody.append(content);
+            mySelect.append(selectContent);
 
             // myBtn click end
+            // 
 
-            // form submit
+
+            // 資料區 form submit
             myForm.submit(function (e) {
                 e.preventDefault();
 
@@ -260,10 +278,11 @@
 
                 console.log('content', content);
                 myTbody.append(content);
-
-                // form submit end
+                // show data end
 
             });
+            // 資料區 end
+
         });
     </script>
 </body>

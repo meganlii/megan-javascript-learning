@@ -119,7 +119,7 @@
     <!-- get data -->
 
     <!-- load js -->
-    <!--ajax json -->
+    <!-- ajax json -->
     <script src="./data/testData_all.js"></script>
 
     <script>
@@ -182,16 +182,12 @@
                             <td>${value.time[2].minT}-${value.time[2].maxT}</td>
                         </tr>
                         `;
-
                         return false;
                     }
-
                 });
-
                 myTbody.append(content);
-
             });
-
+            // myBtn click end
 
 
             // init 
@@ -217,9 +213,9 @@
 
             myTbody.append(content);
             mySelect.append(selectContent);
-            
 
-            // form submit
+
+            // 資料區 form submit
             myForm.submit(function (e) {
                 e.preventDefault();
                 // get form data
@@ -262,14 +258,11 @@
                 });
 
                 console.log('content', content);
-
                 myTbody.append(content);
                 // show data end
-
-
             });
 
-            // form submit end
+            // 資料區 end form submit 
 
 
         });
