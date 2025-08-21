@@ -346,7 +346,7 @@
         let getStatus = $(this).attr("data-status");
         // console.log("getStatus", getStatus);
 
-        // 共用FUN
+        // 呼叫共用函式
         showStatusAQIFun(getStatus);
 
       });
@@ -360,25 +360,10 @@
         $(".my-checkbox").prop("checked", false);
 
         let getStatus = $(this).val();
-        content = "";
-        myTbody.html("");
 
-        // 遍歷資料集，篩選出符合狀態的資料
-        $.each(data, function (key, value) {
-          if (getStatus === value.status) {
-            content += `
-              <tr>
-              <td>${key + 1}</td>
-              <td>${value.sitename}</td>
-              <td>${value.aqi}</td>
-              <td>${value.status}</td>
-              <td>${value.publishtime}</td>
-              </tr>
-              `;
-          }
-        });
+        // 呼叫共用函式
+        showStatusAQIFun(getStatus);
 
-        myTbody.append(content);
       });
 
       // 3.下拉選單 end
